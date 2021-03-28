@@ -1,0 +1,18 @@
+[
+{"type":"header","version":"5.0.4","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"ssitproject"},
+{"type":"table","name":"categories","database":"ssitproject","data":
+[
+{"id":"101","root":"0","create_by":"1","name":"Desktop","slug":"desktop","status":"active","created_at":"2021-02-03 05:46:57","updated_at":"2021-02-03 05:46:57"},
+{"id":"102","root":"0","create_by":"1","name":"Freezer","slug":"freezer","status":"active","created_at":"2021-02-03 05:47:36","updated_at":"2021-02-03 05:47:36"},
+{"id":"103","root":"0","create_by":"1","name":"Laptop","slug":"laptop","status":"active","created_at":"2021-02-03 05:47:56","updated_at":"2021-02-03 05:47:56"},
+{"id":"104","root":"0","create_by":"1","name":"Microwave Oven","slug":"microwave-oven","status":"active","created_at":"2021-02-03 05:48:16","updated_at":"2021-02-03 05:48:16"},
+{"id":"105","root":"0","create_by":"1","name":"Motor Bike","slug":"motor-bike","status":"active","created_at":"2021-02-03 05:48:34","updated_at":"2021-02-03 05:48:34"},
+{"id":"106","root":"0","create_by":"1","name":"Refrigerator","slug":"refrigerator","status":"active","created_at":"2021-02-03 05:48:48","updated_at":"2021-02-03 05:48:48"},
+{"id":"107","root":"0","create_by":"1","name":"Smart Phone","slug":"smart-phone","status":"active","created_at":"2021-02-03 05:49:07","updated_at":"2021-02-03 05:49:07"},
+{"id":"108","root":"0","create_by":"1","name":"Smart TV & Android TV","slug":"smart-tv-android-tv","status":"active","created_at":"2021-02-03 05:49:29","updated_at":"2021-02-03 05:49:29"},
+{"id":"109","root":"0","create_by":"1","name":"Speaker","slug":"speaker","status":"active","created_at":"2021-02-03 05:49:44","updated_at":"2021-02-03 05:49:44"},
+{"id":"110","root":"0","create_by":"1","name":"Split AC","slug":"split-ac","status":"active","created_at":"2021-02-03 05:50:00","updated_at":"2021-02-03 05:50:00"}
+]
+}
+]

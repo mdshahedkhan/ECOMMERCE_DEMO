@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Sony Plus",
+        "slug": "sony-plus",
+        "status": "active",
+        "create_by": "1"
+    },
+    {
+        "name": "Samsung Bangladesh",
+        "slug": "samsung-bangladesh",
+        "status": "active",
+        "create_by": "1"
+    },
+    {
+        "name": "Sony",
+        "slug": "sony",
+        "status": "active",
+        "create_by": "1"
+    },
+    {
+        "name": "Walton",
+        "slug": "walton",
+        "status": "active",
+        "create_by": "2"
+    },
+    {
+        "name": "Sony Bravia",
+        "slug": "sony-bravia",
+        "status": "active",
+        "create_by": "3"
+    },
+    {
+        "name": "Vision",
+        "slug": "vision",
+        "status": "active",
+        "create_by": "4"
+    },
+    {
+        "name": "Samsung",
+        "slug": "samsung",
+        "status": "active",
+        "create_by": "5"
+    },
+    {
+        "name": "LG",
+        "slug": "lg",
+        "status": "active",
+        "create_by": "6"
+    },
+    {
+        "name": "Electro World",
+        "slug": "electro-world",
+        "status": "active",
+        "create_by": "7"
+    },
+    {
+        "name": "Sharp",
+        "slug": "sharp",
+        "status": "active",
+        "create_by": "9"
+    },
+    {
+        "name": "Hiton",
+        "slug": "hiton",
+        "status": "active",
+        "create_by": "9"
+    },
+    {
+        "name": "Vigo",
+        "slug": "vigo",
+        "status": "active",
+        "create_by": "1"
+    }
+]
