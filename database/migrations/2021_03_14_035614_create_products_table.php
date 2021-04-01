@@ -33,8 +33,8 @@ class CreateProductsTable extends Migration
             $table->string('size')->nullable();
             $table->longText('description')->nullable();
             $table->tinyInteger('warranty')->default('1')->comment('1 Yes and 0 no');
-            $table->tinyInteger('warranty_duration')->nullable();
-            $table->tinyInteger('warranty_condition')->nullable();
+            $table->string('warranty_duration')->nullable();
+            $table->longText('warranty_condition')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('image')->nullable();
             $table->enum('status',['active','inactive'])->default('active');

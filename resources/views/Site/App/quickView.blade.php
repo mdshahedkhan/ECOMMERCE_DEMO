@@ -3,39 +3,29 @@
         <div class="col-lg-6 product-single-gallery">
             <div class="product-slider-container">
                 <div class="product-single-carousel owl-carousel owl-theme">
-                    <div class="product-item">
-                        <img class="product-single-image" src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-1.html" data-zoom-image="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-1-big.html"/>
-                    </div>
-                    <div class="product-item">
-                        <img class="product-single-image" src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-2.html" data-zoom-image="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-2-big.html"/>
-                    </div>
-                    <div class="product-item">
-                        <img class="product-single-image" src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-3.html" data-zoom-image="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-3-big.html"/>
-                    </div>
-                    <div class="product-item">
-                        <img class="product-single-image" src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-4.html" data-zoom-image="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-4-big.html"/>
-                    </div>
+                    @php($Product_image = [$QuickView->thumbnail])
+                    @foreach(json_decode($QuickView->image) as $image)
+                        @php(array_push($Product_image, $image))
+                    @endforeach
+                    @foreach($Product_image as $images)
+                        <div class="product-item">
+                            <img class="product-single-image" src="{{ asset('uploads/product/'.$images) }}"  data-zoom-image="{{ asset('uploads/product/'.$images) }}" alt="{{ $QuickView->name }}"/>
+                        </div>
+                    @endforeach
                 </div>
                 <!-- End .product-single-carousel -->
             </div>
             <div class="prod-thumbnail owl-dots" id='carousel-custom-dots'>
-                <div class="owl-dot">
-                    <img src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-1.html"/>
-                </div>
-                <div class="owl-dot">
-                    <img src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-2.html"/>
-                </div>
-                <div class="owl-dot">
-                    <img src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-3.html"/>
-                </div>
-                <div class="owl-dot">
-                    <img src="../../../../../www.portotheme.com/html/porto_ecommerce/demo_6/ajax/assets/images/products/zoom/product-4.html"/>
-                </div>
+                @foreach($Product_image as $images)
+                    <div class="owl-dot">
+                        <img src="{{ asset('uploads/product/'.$images) }}" alt="{{ $QuickView->name }}"/>
+                    </div>
+                @endforeach
             </div>
         </div><!-- End .product-single-gallery -->
 
         <div class="col-lg-6 product-single-details">
-            <h1 class="product-title">Silver Porto Headset</h1>
+            <h1 class="product-title">{{ $QuickView->name }}</h1>
 
             <div class="ratings-container">
                 <div class="product-ratings">
@@ -46,12 +36,20 @@
             </div><!-- End .product-container -->
 
             <div class="price-box">
-                <span class="old-price">$81.00</span>
-                <span class="product-price">$101.00</span>
+                @php($special_price = false)
+                @if($QuickView->special_price_form == date('Y-m-d') && $QuickView->special_price_to == date('Y-m-d'))
+                    @php($special_price = true)
+                @endif
+                @if($special_price)
+                    <span class="old-price">{{ $QuickView->selling_price }}</span>
+                    <span class="product-price">{{ $QuickView->special_price }}</span>
+                @else
+                    <span class="product-price">{{ $QuickView->selling_price }}</span>
+                @endif
             </div><!-- End .price-box -->
 
             <div class="product-desc">
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non.</p>
+                <p>{{ $QuickView->description }}</p>
             </div><!-- End .product-desc -->
 
             <div class="product-filters-container">

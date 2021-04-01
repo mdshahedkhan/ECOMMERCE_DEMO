@@ -18,6 +18,9 @@ Route::get('/', [SiteController::class, 'index'])->name('home');
 Route::prefix('products')->name('products.')->group(function () {
     Route::get('/{slug}/{slug2}/{slug3?}', [SiteController::class, 'get_products'])->name('products');
     Route::get('/{slug}', [SiteController::class, 'SingleProduct'])->name('SingleProduct');
-    Route::post('/quick/view/{slug}', [SiteController::class, 'quickView'])->name('quick.view');
+    Route::get('/quick-view/{slug}', [SiteController::class, 'QuickViewProduct'])->name('quick.view');
 });
+
+
+Route::get('/quick/{quick}', [SiteController::class, 'QuickViewProduct'])->name('QuickViewProduct');
 

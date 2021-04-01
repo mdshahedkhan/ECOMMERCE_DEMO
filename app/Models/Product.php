@@ -52,5 +52,5 @@ class Product extends Model
     {
         return $query->where('feature_pro', 1);
     }
-    
+
 }

@@ -17,7 +17,7 @@
                 </div>
                 <div class="ml-auto">
                     <div class="btn-group">
-                        <a href="{{  route('staff.product.create') }}" class="btn btn-info btn-sm"><i class="bx bx-list-ol"></i> Slider Manage</a>
+                        <a href="{{  route('staff.slider.index') }}" class="btn btn-info btn-sm"><i class="bx bx-list-ol"></i> Slider Manage</a>
                     </div>
                 </div>
             </div>
@@ -30,9 +30,11 @@
                                 <h4 class="mb-0"><i class="bx bx-plus-circle"></i> Add New Slider</h4>
                             </div>
                             <hr>
-                            <form id="SlidersForm" enctype="multipart/form-data">
+                            <form id="SlidersForm" action="{{ route('staff.slider.store') }}" method="POST" data-url="{{ route('staff.slider.store') }}" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-body">
                                     <div class="col-md-8 offset-2">
+                                        {!! ShowMessage() !!}
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label" for="title">Title</label>
                                             <div class="col-sm-10">
@@ -65,7 +67,7 @@
                                         <div class="form-group row">
                                             <label class="col-sm-2 col-form-label">Image</label>
                                             <div class="form-group col-md-5">
-                                                <input type="file" name="start_date" id="start_date">
+                                                <input type="file" name="image" id="start_date">
                                             </div>
                                             <div class="form-group col-md-5 slide-image">
                                                 <img src="{{ asset('Default Image.jpg')  }}" class="card-img" style="width: 140px" alt="">

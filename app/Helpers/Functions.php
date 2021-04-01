@@ -135,12 +135,12 @@ function Site_Category($categories)
     foreach ($categories as $category) {
         $output .= '<li>';
         $output .= '<a href="javascript:avoid()" class="sf-with-ul">' . $category->name . '</a>';
-        if (count($category->sub_category) > 0) {
+        if ($category->sub_category) {
             $output .= '<ul>';
             foreach ($category->sub_category as $sub_items) {
                 $output .= '<li>';
                 $output .= '<a href="' . route('products.products', [$category->slug, $sub_items->slug]) . '">' . $sub_items->name . '</a>';
-                if (count($sub_items->sub_category) > 0) {
+                if ($sub_items->sub_category) {
                     $output .= '<ul>';
                     foreach ($sub_items->sub_category as $sub_items2) {
                         $output .= '<li>';

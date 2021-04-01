@@ -1,6 +1,10 @@
 @extends('Site.App.App')
 
 @push('title' , 'Hello World')
+@push('CSS')
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+@endpush
 @section('content')
     <main class="main">
         <div class="container mb-2">
@@ -40,37 +44,20 @@
 							'dots': true,
 							'nav': false
 						}">
-                        <div class="home-slide home-slide1 banner banner-md-vw banner-sm-vw">
-                            <img class="owl-lazy slide-bg" src="{{ asset('assets/frontend/assets/images/lazy.png') }}" data-src="{{ asset('assets/frontend/assets/images/slider/slide-2.jpg') }}" alt="slider image">
-                            <div class="banner-layer banner-layer-middle">
-                                <h4 class="text-white pb-4 mb-0">Find the Boundaries. Push Through!</h4>
-                                <h2 class="text-white mb-0">Summer Sale</h2>
-                                <h3 class="text-white text-uppercase m-b-3">70% Off</h3>
-                                <h5 class="text-white text-uppercase d-inline-block mb-0 ls-n-20 align-text-bottom">Starting At <b class="coupon-sale-text bg-secondary text-white d-inline-block">$<em class="align-text-top">199</em>99</b>
-                                </h5>
-                                <a href="category.html" class="btn btn-dark btn-md ls-10">Shop Now!</a>
-                            </div><!-- End .banner-layer -->
-                        </div><!-- End .home-slide -->
+                        @foreach($Sliders as $slider)
+                            <div class="home-slide home-slide1 banner banner-md-vw banner-sm-vw">
+                                <img class="owl-lazy slide-bg" src="{{ asset('uploads/slider/'.$slider->image) }}" data-src="{{ asset('uploads/slider/'.$slider->image) }}" alt="slider image">
+                                <div class="banner-layer banner-layer-middle">
+                                    <h4 class="text-white pb-4 mb-0">{{ $slider->title }}</h4>
+                                    <h2 class="text-white mb-0" style="font-family: 'Kiwi Maru', serif;">{{ ucwords($slider->sub_title) }}</h2>
+                                    <h3 class="text-white text-uppercase m-b-3">70% Off</h3>
+                                    <h5 class="text-white text-uppercase d-inline-block mb-0 ls-n-20 align-text-bottom">Starting At <b class="coupon-sale-text bg-secondary text-white d-inline-block">$<em class="align-text-top">199</em>99</b>
+                                    </h5>
+                                    <a href="{{ $slider->url }}" class="btn btn-dark btn-md ls-10">Shop Now!</a>
+                                </div><!-- End .banner-layer -->
+                            </div><!-- End .home-slide -->
+                        @endforeach
 
-                        <div class="home-slide home-slide2 banner banner-md-vw banner-sm-vw">
-                            <img class="owl-lazy slide-bg" src="{{ asset('assets/frontend/assets/images/lazy.png') }}" data-src="{{ asset('assets/frontend/assets/images/slider/slide-2.jpg') }}" alt="slider image">
-                            <div class="banner-layer banner-layer-middle text-uppercase">
-                                <h4 class="m-b-2">Over 200 products with discounts</h4>
-                                <h2 class="m-b-3">Great Deals</h2>
-                                <h5 class="d-inline-block mb-0 align-top mr-5">Starting At <b>$<em>299</em>99</b></h5>
-                                <a href="category.html" class="btn btn-dark btn-md ls-10">Get Yours!</a>
-                            </div><!-- End .banner-layer -->
-                        </div><!-- End .home-slide -->
-
-                        <div class="home-slide home-slide3 banner banner-md-vw banner-sm-vw">
-                            <img class="owl-lazy slide-bg" data-src="{{ asset('assets/frontend/assets/images/slider/slide-3.jpg') }}"></img>
-                            <div class="banner-layer banner-layer-middle text-uppercase">
-                                <h4 class="m-b-2">Up to 70% off</h4>
-                                <h2 class="m-b-3">New Arrivals</h2>
-                                <h5 class="d-inline-block mb-0 align-top mr-5">Starting At <b>$<em>299</em>99</b></h5>
-                                <a href="category.html" class="btn btn-dark btn-md ls-10">Get Yours!</a>
-                            </div><!-- End .banner-layer -->
-                        </div><!-- End .home-slide -->
                     </div><!-- End .home-slider -->
 
                     <div class="banners-container m-b-2 owl-carousel owl-theme" data-owl-options="{
@@ -135,7 +122,7 @@
                                     <div class="btn-icon-group">
                                         <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
                                     </div>
-                                    <a src="{{ asset('uploads/product/'.$featurePro->thumbnail) }}" class="btn-quickview" title="Quick View">Quick View</a>
+                                    <a href="{{ route('QuickViewProduct', [$featurePro->slug]) }}" id="quickView" class="btn-quickview" title="Quick View">Quick View</a>
                                 </figure>
                                 <div class="product-details">
                                     <div class="category-wrap">

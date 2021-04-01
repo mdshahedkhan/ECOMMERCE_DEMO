@@ -1,6 +1,9 @@
 @extends('Site.App.App')
 
-@push('title' , 'Categories')
+@push('title', 'Category')
+@section('nav-bar')
+    @include('Site.App.nav-bar', $category)
+@endsection
 @section('content')
     <main class="main">
         <div class="category-banner-container bg-gray">
@@ -25,7 +28,7 @@
         <div class="container">
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
                     <li class="breadcrumb-item"><a href="#">Men</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Accessories</li>
                 </ol>
@@ -36,10 +39,10 @@
                     <nav class="toolbox">
                         <div class="toolbox-left">
                             <div class="toolbox-item toolbox-sort">
-                                <label>Sort By:</label>
+                                <label for="order_by">Sort By:</label>
 
                                 <div class="select-custom">
-                                    <select name="orderby" class="form-control">
+                                    <select name="order_by" id="order_by" class="form-control">
                                         <option value="menu_order" selected="selected">Default sorting</option>
                                         <option value="popularity">Sort by popularity</option>
                                         <option value="rating">Sort by average rating</option>
@@ -82,25 +85,27 @@
                             <div class="col-6 col-sm-4">
                                 <div class="product-default inner-quickview inner-icon">
                                     <figure>
+                                        @php
+                                            $sp_price = false;
+                                        if($product->special_price_form <= date('Y-m-d') && $product->special_price_to >= date('Y-m-d')){
+                                            $sp_price = true;
+                                        }
+
+                                        @endphp
                                         <a href="{{ route('products.SingleProduct', $product->slug) }}">
                                             <img src="{{ asset('uploads/product/'.$product->thumbnail) }}" style="width: 300px; height: 220px" alt="{{ $product->name }}">
                                         </a>
-                                        @php
-                                            $discount_price = false;
-                                            if ($product->special_price_form <= date('Y') && $product->special_price_to >= date('Y-m-d')){
-                                            $discount_price = true;
-                                            }
-                                        @endphp
-                                        @if($discount_price == true)
+                                        @if($sp_price)
                                             <div class="label-group">
                                                 <div class="product-label label-hot">HOT</div>
                                                 <div class="product-label label-sale">-20%</div>
                                             </div>
                                         @endif
+
                                         <div class="btn-icon-group">
                                             <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
                                         </div>
-                                        <a href="javascript:" onclick="{{ route('products.quick.view', $product->slug) }}" id="quickView" class="btn-quickview" title="Quick View">Quick View</a>
+                                        <a href="{{ route('QuickViewProduct', [$product->slug]) }}" id="quickView" class="btn-quickview" title="Quick View">Quick View</a>
                                     </figure>
                                     <div class="product-details">
                                         <div class="category-wrap">
@@ -118,16 +123,13 @@
                                                 <span class="tooltiptext tooltip-top"></span>
                                             </div><!-- End .product-ratings -->
                                         </div><!-- End .product-container -->
-                                        @php
-                                            $special_price = false;
-                                            if ($product->special_price_form == date('Y-m-d') && $product->special_price_to == date('Y-m-d')){
-                                                $special_price = true;
-                                            }
-                                        @endphp
                                         <div class="price-box">
-
-                                            <span class="old-price">{{ $product->selling_price }}</span>
-                                            <span class="product-price">{{ $product->special_price }}</span>
+                                            @if(!$sp_price)
+                                                <span class="old-price">{{ $product->selling_price }}</span>
+                                                <span class="product-price">{{ $product->special_price }}</span>
+                                            @else
+                                                <span class="product-price">{{ $product->selling_price }}</span>
+                                            @endif
                                         </div><!-- End .price-box -->
                                     </div><!-- End .product-details -->
                                 </div>
@@ -144,7 +146,6 @@
                             <h3 class="widget-title">
                                 <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Categories</a>
                             </h3>
-
                             <div class="collapse show" id="widget-body-2">
                                 <div class="widget-body">
                                     <ul class="cat-list">
@@ -161,7 +162,6 @@
                             <h3 class="widget-title">
                                 <a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Price</a>
                             </h3>
-
                             <div class="collapse show" id="widget-body-3">
                                 <div class="widget-body">
                                     <form action="#">
@@ -206,7 +206,7 @@
                                 <div class="widget-body">
                                     <ul class="cat-list">
                                         @foreach($brands as $brand)
-                                            <li><a href="#">{{ $brand->name }}</a></li>
+                                            <li><a href="#">{{ $brand->name }} ({{ $brand->products->count() }})</a></li>
                                         @endforeach
                                     </ul>
                                 </div><!-- End .widget-body -->
@@ -259,141 +259,50 @@
                         </div><!-- End .widget -->
 
                         <div class="widget widget-featured">
-                            <h3 class="widget-title">Featured</h3>
+                            <h3 class="widget-title">Featured Product</h3>
 
                             <div class="widget-body">
                                 <div class="owl-carousel widget-featured-products">
-                                    <div class="featured-col">
-                                        <div class="product-default left-details product-widget">
-                                            <figure>
-                                                <a href="product.html">
-                                                    <img src="{{ asset('assets/frontend/assets/images/products/product-10.jpg') }}">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Product Short Name</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$49.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div>
-                                        <div class="product-default left-details product-widget">
-                                            <figure>
-                                                <a href="product.html">
-                                                    <img src="{{ asset('assets/frontend/assets/images/products/product-11.jpg') }}">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Product Short Name</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$49.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div>
-                                        <div class="product-default left-details product-widget">
-                                            <figure>
-                                                <a href="product.html">
-                                                    <img src="{{ asset('assets/frontend/assets/images/products/product-12.jpg') }}">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Product Short Name</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$49.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div>
-                                    </div><!-- End .featured-col -->
+                                    @php($sl = 1)
+                                    @foreach($feature_product as $productFeature)
+                                        @if(($sl%3) == 1)
+                                            <div class="featured-col">
+                                                @endif
+                                                <div class="product-default left-details product-widget">
+                                                    <figure>
+                                                        <a href="{{ route('products.SingleProduct', $productFeature->slug) }}">
+                                                            <img src="{{ asset('uploads/product/'.$productFeature->thumbnail) }}" alt="{{ $productFeature->name }}">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h2 class="product-title">
+                                                            <a href="{{ route('products.SingleProduct', $productFeature->slug) }}">{{ $productFeature->name }}</a>
+                                                        </h2>
+                                                        <div class="ratings-container">
+                                                            <div class="product-ratings">
+                                                                <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div><!-- End .product-ratings -->
+                                                        </div><!-- End .product-container -->
+                                                        <div class="price-box">
+                                                            @php($special_price = false)
+                                                            @if($productFeature->special_price_form <= date('Y-m-d') && $productFeature->special_price_to >= date('Y-m-d'))
+                                                                @php($special_price = true)
+                                                            @endif
+                                                            @if($special_price)
+                                                                <span class="product-price">{{ $productFeature->special_price }}</span>
+                                                            @else
+                                                                <span class="product-price">{{ $productFeature->selling_price }}</span>
+                                                            @endif
 
-                                    <div class="featured-col">
-                                        <div class="product-default left-details product-widget">
-                                            <figure>
-                                                <a href="product.html">
-                                                    <img src="{{ asset('assets/frontend/assets/images/products/product-13.jpg') }}">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Product Short Name</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$49.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div>
-                                        <div class="product-default left-details product-widget">
-                                            <figure>
-                                                <a href="product.html">
-                                                    <img src="{{ asset('assets/frontend/assets/images/products/product-14.jpg') }}">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Product Short Name</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$49.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div>
-                                        <div class="product-default left-details product-widget">
-                                            <figure>
-                                                <a href="product.html">
-                                                    <img src="{{ asset('assets/frontend/assets/images/products/product-8.jpg') }}">
-                                                </a>
-                                            </figure>
-                                            <div class="product-details">
-                                                <h2 class="product-title">
-                                                    <a href="product.html">Product Short Name</a>
-                                                </h2>
-                                                <div class="ratings-container">
-                                                    <div class="product-ratings">
-                                                        <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                        <span class="tooltiptext tooltip-top"></span>
-                                                    </div><!-- End .product-ratings -->
-                                                </div><!-- End .product-container -->
-                                                <div class="price-box">
-                                                    <span class="product-price">$49.00</span>
-                                                </div><!-- End .price-box -->
-                                            </div><!-- End .product-details -->
-                                        </div>
-                                    </div><!-- End .featured-col -->
+                                                        </div><!-- End .price-box -->
+                                                    </div><!-- End .product-details -->
+                                                </div>
+                                                @if( ($sl%3) == 0 || $sl == count($feature_product))
+                                            </div><!-- End .featured-col -->
+                                        @endif
+                                        @php($sl++)
+                                    @endforeach
                                 </div><!-- End .widget-featured-slider -->
                             </div><!-- End .widget-body -->
                         </div><!-- End .widget -->

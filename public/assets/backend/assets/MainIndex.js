@@ -381,14 +381,14 @@ function submitForm(url) {
     });
 }
 
-$('#SlidersForm').submit(function (e) {
+/*$('#SlidersForm').submit(function (e) {
     e.preventDefault();
     let FormDate = [];
     [...this.elements].forEach(el => {
         FormDate[el] = el.val;
     });
     console.log(FormDate);
-});
+});*/
 
 function pos3_warning_noti(mess) {
     Lobibox.notify('success', {
@@ -401,17 +401,6 @@ function pos3_warning_noti(mess) {
     });
 }
 
-
-function quickView(Url) {
-    event.preventDefault();
-    $.ajax({
-        url: Url,
-        method: 'POST',
-        success: function (res) {
-            $('#ViewsQuick').html(res);
-        }
-    });
-}
 
 
 // Brand Status Change With Ajax Request

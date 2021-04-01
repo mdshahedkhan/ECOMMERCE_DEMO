@@ -58,11 +58,13 @@
                                         <td>{{  $item->slug }}</td>
                                         <td>{{  $item->users->name }}</td>
                                         <td>
-                                            <input type="checkbox" data-toggle="toggle" data-id="{{ $item->id }}" data-url="" id="CategoryStatus" data-on="Active" data-onstyle="success" data-off="Inactive" data-offstyle="warning"  data-size="small" {{  $item->status == 'active' ? 'checked' :''  }}>
+                                            <input type="checkbox" data-toggle="toggle" data-id="{{ $item->id }}" data-url="" id="CategoryStatus" data-on="Active" data-onstyle="success" data-off="Inactive"
+                                                   data-offstyle="warning" data-size="small" {{  $item->status == 'active' ? 'checked' :''  }}>
                                         </td>
                                         <td>
                                             <a href="{{  route('staff.category.edit', base64_encode($item->id)) }}" class="btn btn-info btn-sm">Edit</a>
-                                            <a href="javascript:;" onclick="DeleteItems('{{ route('staff.category.destroy', $item->id) }}', '{{ $item->id }}')" data-id="{{ $item->id }}" class="btn btn-danger btn-sm">Delete</a>
+                                            <a href="javascript:;" onclick="DeleteItems('{{ route('staff.category.destroy', base64_encode($item->id)) }}', '{{ $item->id }}')" data-id="{{ $item->id }}"
+                                               class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </tr>
                                     @if(count($item->sub_category))
@@ -73,11 +75,12 @@
                                                 <td>{{  $sub_category1->slug }}</td>
                                                 <td>{{  $sub_category1->users->name }}</td>
                                                 <td>
-                                                    <input type="checkbox" data-toggle="toggle" data-id="{{ $sub_category1->id }}" data-url="" id="CategoryStatus" data-on="Active" data-onstyle="success" data-off="Inactive" data-offstyle="warning"  data-size="small" {{  $sub_category1->status == 'active' ? 'checked' :''  }}>
+                                                    <input type="checkbox" data-toggle="toggle" data-id="{{ $sub_category1->id }}" data-url="" id="CategoryStatus" data-on="Active" data-onstyle="success" data-off="Inactive"  data-offstyle="warning" data-size="small" {{  $sub_category1->status == 'active' ? 'checked' :''  }}>
                                                 </td>
                                                 <td>
                                                     <a href="{{  route('staff.category.edit', base64_encode($sub_category1->id)) }}" class="btn btn-info btn-sm">Edit</a>
-                                                    <a href="javascript:;" onclick="DeleteItems('{{ route('staff.category.destroy', base64_encode($sub_category1->id)) }}', '{{ $sub_category1->id }}')" data-id="{{ $sub_category1->id }}" class="btn btn-danger btn-sm">Delete</a>
+                                                    <a href="javascript:;" onclick="DeleteItems('{{ route('staff.category.destroy', base64_encode($sub_category1->id)) }}', '{{ $sub_category1->id }}')"
+                                                       data-id="{{ $sub_category1->id }}" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
                                             @if(count($sub_category1->sub_category))
@@ -88,11 +91,12 @@
                                                         <td>{{  $sub_category2->slug }}</td>
                                                         <td>{{  $sub_category2->users->name }}</td>
                                                         <td>
-                                                            <input type="checkbox" data-toggle="toggle" data-size="mini" data-id="{{ $sub_category2->id }}" data-url="" id="CategoryStatus" data-on="Active" data-onstyle="success" data-off="Inactive" data-offstyle="warning"  data-size="small" {{  $sub_category2->status == 'active' ? 'checked' :''  }}>
+                                                            <input type="checkbox" data-toggle="toggle" data-size="mini" data-id="{{ $sub_category2->id }}" data-url="" id="CategoryStatus" data-on="Active" data-onstyle="success" data-off="Inactive" data-offstyle="warning" data-size="small" {{  $sub_category2->status == 'active' ? 'checked' :''  }}>
                                                         </td>
                                                         <td>
                                                             <a href="{{  route('staff.category.edit', base64_encode($sub_category2->id)) }}" class="btn btn-info btn-sm">Edit</a>
-                                                            <a href="javascript:;" onclick="DeleteItems('{{ route('staff.category.destroy', $sub_category2->id) }}', '{{ $sub_category2->id }}')" data-id="{{ $sub_category2->id }}" class="btn btn-danger btn-sm">Delete</a>
+                                                            <a href="javascript:;" onclick="DeleteItems('{{ route('staff.category.destroy', $sub_category2->id) }}', '{{ $sub_category2->id }}')"
+                                                               data-id="{{ $sub_category2->id }}" class="btn btn-danger btn-sm">Delete</a>
                                                         </td>
                                                     </tr>
                                                 @endforeach

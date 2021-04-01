@@ -86,11 +86,10 @@ class CategoryController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int                      $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
+     * @param Request $request
+     * @param         $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, $id)
     {
@@ -122,9 +121,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $cat = Category::where('root', $id)->get();
+        $cat = Category::where('root', base64_decode($id))->get();
         if (!count($cat)) {
-            $Category = Category::find($id);
+            $Category = Category::find(base64_decode($id));
             $Category->delete();
             return response()->json('success');
         }

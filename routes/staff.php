@@ -47,9 +47,10 @@ Route::prefix('staff')->name('staff.')->middleware('auth')->group(function () {
         Route::post('/Change/status/inactive', [ProductController::class, 'MultiItemsInactive'])->name('MultiItemsInactive');
     });
 
-    Route::prefix('/sliders')->name('slider.')->group(function (){
+    Route::prefix('/sliders')->name('slider.')->group(function () {
         Route::get('/', [SliderController::class, 'index'])->name('index');
         Route::get('/create', [SliderController::class, 'create'])->name('create');
+        Route::post('/create', [SliderController::class, 'store'])->name('store');
         Route::get('/status{}', [SliderController::class, 'status']);
         Route::post('/status-slider/{id}/{status}', [SliderController::class, 'StatusChange'])->name('status');
     });

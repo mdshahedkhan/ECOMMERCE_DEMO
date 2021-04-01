@@ -7,7 +7,7 @@
 
     <title> @stack('title') - Porto eCommerce</title>
 
-    <meta name="keywords" content="HTML5 Template" />
+    <meta name="keywords" content="HTML5 Template"/>
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
 
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
+    @stack('CSS')
 </head>
 <body>
     <div class="page-wrapper">
@@ -209,6 +210,7 @@
                 </div><!-- End .container -->
             </div><!-- End .header-middle -->
         </header><!-- End .header -->
+        @yield('nav-bar')
 
         @yield('content')
 
@@ -442,8 +444,12 @@
                     <h4 id="productTitle"></h4>
                     <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
                     <div class="btn-actions">
-                        <a href="cart.html"><button class="btn-primary">Go to cart page</button></a>
-                        <a href="#"><button class="btn-primary" data-dismiss="modal">Continue</button></a>
+                        <a href="cart.html">
+                            <button class="btn-primary">Go to cart page</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn-primary" data-dismiss="modal">Continue</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -459,6 +465,7 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('assets/frontend/assets/js/main.min.js') }}"></script>
+    @stack('JS')
 </body>
 
 <!-- Mirrored from portotheme.com/html/porto_ecommerce/demo_6/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Mar 2021 12:56:29 GMT -->
