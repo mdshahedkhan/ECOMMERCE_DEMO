@@ -61,5 +61,23 @@ class SiteController extends Controller
         return view('Site.App.quickView', compact('QuickView'));
     }
 
+    public function Get_All_products()
+    {
+        $category  = Category::where('root', Category::CategoryRoot)->where('status', 'active')->get();
+        return view('Site.All-Products', compact('category'));
+    }
+
+    public function Load_More_Data(Request $request)
+    {
+        if ($request->ajax()) {
+            if ($request->id) {
+                $data = Product::orderBy('id', 'DESC')->where('status', 'active')->where('id', '<', $request->id)->limit(10)->get();
+            } else {
+                $data = Product::orderBy('id', 'DESC')->where('status', 'active')->limit(10)->get();
+            }
+            return view('Site.components.load-more', compact('data'));
+        }
+    }
+
 
 }

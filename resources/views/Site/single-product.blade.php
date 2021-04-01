@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb" class="breadcrumb-nav">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('home') }}"><i class="icon-home"></i></a></li>
-                    <li class="breadcrumb-item"><a href="#">{{ $SingleProduct->name }}</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:avoid(0)">{{ $SingleProduct->name }}</a></li>
                 </ol>
             </nav>
             <div class="row">
@@ -32,10 +32,14 @@
                                                 @foreach($myImage as $image)
                                                     <div class="owl-item cloned" style="width: 480.031px;">
                                                         <div class="product-item">
-                                                            <img class="product-single-image" src="{{ asset('uploads/product/'.$image) }}" alt="{{ $SingleProduct->name }}" data-zoom-image="{{ asset('uploads/product/'.$image) }}">
+                                                            <img class="product-single-image" src="{{ asset('uploads/product/'.$image) }}" alt="{{ $SingleProduct->name }}"
+                                                                 data-zoom-image="{{ asset('uploads/product/'.$image) }}">
                                                             <div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:0;top:0;height:480.016px;width:480.016px;">
                                                                 <div class="zoomWindowContainer" style="width: 400px;">
-                                                                    <div style="z-index: 999; overflow: hidden; margin-left: 0; margin-top: 0; background-position: 0 0; width: 480.016px; height: 480.016px; float: left; display: none; cursor: grab; background-repeat: no-repeat; position: absolute; background-image: url(&quot;{{ asset('uploads/product/'.$image) }}&quot;);" class="zoomWindow">&nbsp;</div>
+                                                                    <div
+                                                                        style="z-index: 999; overflow: hidden; margin-left: 0; margin-top: 0; background-position: 0 0; width: 480.016px; height: 480.016px; float: left; display: none; cursor: grab; background-repeat: no-repeat; position: absolute; background-image: url(&quot;{{ asset('uploads/product/'.$image) }}&quot;);"
+                                                                        class="zoomWindow">&nbsp;
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -417,7 +421,7 @@
                                             @endif
                                             @if($special_price)
                                                 <div class="label-group">
-                                                    <span class="product-label label-sale">-20%</span>
+                                                    <span class="product-label label-sale">-{{ sprintf('%.2f', (($product->selling_price-$product->special_price)/$product->selling_price)*100) }}%</span>
                                                 </div>
                                             @endif
                                             <div class="btn-icon-group">

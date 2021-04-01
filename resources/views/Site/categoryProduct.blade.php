@@ -98,7 +98,7 @@
                                         @if($sp_price)
                                             <div class="label-group">
                                                 <div class="product-label label-hot">HOT</div>
-                                                <div class="product-label label-sale">-20%</div>
+                                                <div class="product-label label-sale">-{{ sprintf('%d', (($product->selling_price-$product->special_price)/$product->selling_price) * 100) }}%</div>
                                             </div>
                                         @endif
 

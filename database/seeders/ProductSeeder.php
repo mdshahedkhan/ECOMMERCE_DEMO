@@ -38,7 +38,7 @@ class ProductSeeder extends Seeder
                 'selling_price'      => rand(1, 1000),
                 'special_price'      => rand(1, 800),
                 'special_price_form' => date('Y-m-' . rand(1, 29)),
-                'special_price_to'   => date('Y-' . rand(3, 5) . '-' . rand(1, 29)),
+                'special_price_to'   => date('Y-' . rand(4, 5) . '-' . rand(1, 29)),
                 'quantity'           => rand(1, 10),
                 'sku_code'           => rand(1, 50),
                 'color'              => json_encode(array_rand(Color()), 3),

@@ -63,6 +63,6 @@ class SliderController extends Controller
         $Slider         = Slider::find($id);
         $Slider->status = $status;
         $Slider->save();
-
     }
+
 }
