@@ -1,9 +1,9 @@
 @extends('Site.App.App')
 
 @push('title', 'Category')
-@section('nav-bar')
+{{--@section('nav-bar')
     @include('Site.App.nav-bar', $category)
-@endsection
+@endsection--}}
 @section('content')
     <main class="main">
         <div class="category-banner-container bg-gray">
@@ -103,7 +103,8 @@
                                         @endif
 
                                         <div class="btn-icon-group">
-                                            <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
+                                            <button data-url="{{ route('cart.add') }}" class="btn-icon btn-add-cart addCart" data-slug="{{ $product->slug }}"><i class="icon-shopping-cart"></i></button>
+                                            <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $product->slug }}"><i class="icon-shopping-cart"></i></button>
                                         </div>
                                         <a href="{{ route('QuickViewProduct', [$product->slug]) }}" id="quickView" class="btn-quickview" title="Quick View">Quick View</a>
                                     </figure>

@@ -1,9 +1,9 @@
 @extends('Site.App.App')
 
 @push('title' , $SingleProduct->name)
-@section('nav-bar')
+{{--@section('nav-bar')
     @include('Site.App.nav-bar', $category)
-@endsection
+@endsection--}}
 @section('content')
     <main class="main">
         <div class="container">
@@ -92,18 +92,14 @@
                                     <div class="product-single-filter">
                                         <label>Colors:</label>
                                         <ul class="config-swatch-list">
-                                            <li class="active">
-                                                <a href="#" style="background-color: #00a9ff;"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" style="background-color: #ab6e6e;"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" style="background-color: #ddb577;"></a>
-                                            </li>
-                                            <li>
-                                                <a href="#" style="background-color: #6085a5;"></a>
-                                            </li>
+                                            @php
+                                                $colors = json_decode($SingleProduct->color);
+                                            @endphp
+                                            @foreach($colors as $color)
+                                                <li class="color-items" data-value="{{ $color }}">
+                                                    <a href="javascript:;" style="background-color: {{ $color }};"></a>
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </div><!-- End .product-single-filter -->
                                 </div><!-- End .product-filters-container -->
@@ -140,9 +136,9 @@
                                                                 class="btn btn-outline btn-down-icon bootstrap-touchspin-down" type="button"></button></span><input class="horizontal-quantity form-control" type="text"><span
                                                             class="input-group-btn input-group-append"><button class="btn btn-outline btn-up-icon bootstrap-touchspin-up" type="button"></button></span></div>
                                                 </div><!-- End .product-single-qty -->
-
-                                                <a href="cart.html" class="btn btn-dark add-cart icon-shopping-cart" title="Add to Cart">Add to Cart</a>
-                                            </div><!-- End .product-action -->
+                                                <a href="javascript:;" data-url="{{ route('cart.add')  }}" data-slug="{{ $SingleProduct->slug }}" class="addCart btn btn-dark add-cart icon-shopping-cart" title="Add to Cart">Add to
+                                                    Cart</a>
+                                            </div>
 
                                             <hr class="divider mb-1">
                                         </div><!-- end .container -->
@@ -425,7 +421,7 @@
                                                 </div>
                                             @endif
                                             <div class="btn-icon-group">
-                                                <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
+                                                <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $product->slug }}" ><i class="icon-shopping-cart"></i></button>
                                             </div>
                                             <a href="{{ route('QuickViewProduct', [$product->slug]) }}" class="btn-quickview" title="Quick View">Quick View</a>
                                         </figure>

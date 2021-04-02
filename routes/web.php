@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Fronted\SiteController;
+use App\Http\Controllers\Fronted\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,11 @@ Route::prefix('products')->name('products.')->group(function () {
     Route::get('/{slug}', [SiteController::class, 'SingleProduct'])->name('SingleProduct');
     Route::get('/quick-view/{slug}', [SiteController::class, 'QuickViewProduct'])->name('quick.view');
 });
-
-
 Route::get('/quick/{quick}', [SiteController::class, 'QuickViewProduct'])->name('QuickViewProduct');
 
+
+// Cart Add Product & Items
+Route::prefix('cart')->name('cart.')->group(function () {
+    Route::get('/show', [CartController::class, 'index'])->name('show');
+    Route::post('/add-item', [CartController::class, 'Store'])->name('add');
+});

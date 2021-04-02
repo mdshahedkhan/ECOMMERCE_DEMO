@@ -104,11 +104,11 @@ function ShowRootCategory($categories, $label)
 function Color()
 {
     return [
-        1 => 'Red',
-        2 => 'Green',
-        3 => 'Blue',
-        4 => 'Pink',
-        5 => 'White'
+        'Red'   => 'Red',
+        'Green' => 'Green',
+        'Blue'  => 'Blue',
+        'Pink'  => 'Pink',
+        'White' => 'White'
     ];
 }
 

@@ -63,7 +63,7 @@ class SiteController extends Controller
 
     public function Get_All_products()
     {
-        $category  = Category::where('root', Category::CategoryRoot)->where('status', 'active')->get();
+        $category = Category::where('root', Category::CategoryRoot)->where('status', 'active')->get();
         return view('Site.All-Products', compact('category'));
     }
 

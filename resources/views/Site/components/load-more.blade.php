@@ -16,7 +16,6 @@
                     if($items->special_price_form <= date('Y-m-d') && $items->special_price_to >= date('Y-m-d')){
                         $sp_price = true;
                     }
-
                     @endphp
                     @if($sp_price)
                         <div class="label-group">
@@ -25,7 +24,7 @@
                         </div>
                     @endif
                     <div class="btn-icon-group">
-                        <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
+                        <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $items->slug }}"><i class="icon-shopping-cart"></i></button>
                     </div>
                     <a href="{{ route('QuickViewProduct', [$items->slug]) }}" class="btn-quickview" title="Quick View">Quick View</a>
                 </figure>

@@ -89,7 +89,7 @@
             $('.loading-overlay').show();
             let id = $(this).data('id');
             Load_More_Data(id)
-            $(this).html('Loading...').attr('disabled', true);
+            $(this).html('Loading.....').attr('disabled', true);
         });
 
     </script>

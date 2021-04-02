@@ -41,7 +41,7 @@ class ProductSeeder extends Seeder
                 'special_price_to'   => date('Y-' . rand(4, 5) . '-' . rand(1, 29)),
                 'quantity'           => rand(1, 10),
                 'sku_code'           => rand(1, 50),
-                'color'              => json_encode(array_rand(Color()), 3),
+                'color'              => json_encode(array_rand(Color(), 5)),
                 'size'               => json_encode(array_rand(Size(), 3)),
                 'description'        => substr($faker->text, 0, 200),
                 'warranty'           => rand(0, 1),

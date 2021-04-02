@@ -12,15 +12,16 @@
     <meta name="description" content="Porto - Bootstrap eCommerce Template">
     <meta name="author" content="SW-THEMES">
 
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend/assets/Custom plugins/toastr.min.css') }}">
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/frontend/assets/images/icons/favicon.ico') }}">
     <!-- Plugins CSS File -->
     <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/bootstrap.min.css') }}">
 
     <!-- Main CSS File -->
-    <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/style.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/style.min.css') }}">
     @stack('CSS')
 </head>
 <body>
@@ -437,32 +438,33 @@
         </div><!-- End .newsletter-popup-content -->
     </div><!-- End .newsletter-popup -->
     <!-- Add Cart Modal -->
-    <div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body add-cart-box text-center">
-                    <p>You've just added this product to the<br>cart:</p>
-                    <h4 id="productTitle"></h4>
-                    <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
-                    <div class="btn-actions">
-                        <a href="cart.html">
-                            <button class="btn-primary">Go to cart page</button>
-                        </a>
-                        <a href="#">
-                            <button class="btn-primary" data-dismiss="modal">Continue</button>
-                        </a>
-                    </div>
+{{--<div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body add-cart-box text-center">
+                <p>You've just added this product to the<br>cart:</p>
+                <h4 id="productTitle"></h4>
+                <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
+                <div class="btn-actions">
+                    <a href="">
+                        <button class="btn-primary">Go to cart page</button>
+                    </a>
+                    <a href="#">
+                        <button class="btn-primary" data-dismiss="modal">Continue</button>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
+</div>--}}
 
-    <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
+{{--    <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>--}}
 
-    <!-- Plugins JS File -->
+<!-- Plugins JS File -->
     <script src="{{ asset('assets/frontend/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/assets/js/plugins.min.js') }}"></script>
+    <script src="{{ asset('assets/backend/assets/Custom plugins/toastr.min.js') }}"></script>
 
     <!-- Main JS File -->
     <script src="{{ asset('assets/frontend/assets/js/main.min.js') }}"></script>
