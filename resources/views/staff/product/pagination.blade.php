@@ -11,9 +11,9 @@
                     <th>Category</th>
                     <th>Brand</th>
                     <th>Model</th>
-                    <th>Buy Price</th>
-                    <th>Sl Price</th>
-                    <th>Sp Price</th>
+                    <th width="100px">Buy Price</th>
+                    <th width="100px">Sl Price</th>
+                    <th width="100px">Sp Price</th>
                     <th>Feature Product</th>
                     <th>Status</th>
                     <th>Author</th>
@@ -26,7 +26,7 @@
                         <td>
                             <input type="checkbox" class="checkboxChecked-Items" name="checkItems[]" value="{{ $product->id }}">
                         </td>
-                        <td width="">
+                        <td>
                             <a href="{{ asset('uploads/product/'.$product->thumbnail) }}" target="_blank" data-lightbox="{{ $product->thumbnail }}" data-title="{{ $product->name }}">
                                 <img src="{{ asset('uploads/product/'.$product->thumbnail) }}" width="50px" class="rounded ml-3 shadow" alt="Product">
                             </a>
@@ -35,9 +35,9 @@
                         <td>{{ $product->category->name }}</td>
                         <td>{{ $product->brand->name }}</td>
                         <td>{{ $product->model }}</td>
-                        <td><input type="number" id="ChangeProductPrice" data-id="{{ $product->id }}" data-url="{{ route('staff.product.PriceUpdate') }}" class="form-control" value="{{ $product->buying_price }}"></td>
-                        <td><input type="number" class="form-control" value="{{ $product->selling_price  }}"></td>
-                        <td><input type="number" class="form-control" value="{!! $product->special_price !== null ? $product->special_price:'' !!}"></td>
+                        <td><input type="text" onchange="UpdatePrice('{{ route('staff.product.PriceUpdate') }}', 'buying_price', '{{ $product->id }}', this.value)" {{--data-url="{{ route('staff.product.PriceUpdate') }}"--}} class="form-control" value="{{ $product->buying_price }}"></td>
+                        <td><input type="text" onchange="UpdatePrice('{{ route('staff.product.PriceUpdate') }}', 'selling_price', '{{ $product->id }}', this.value)" data-id="{{ $product->id }}" class="form-control" value="{{ $product->selling_price  }}"></td>
+                        <td><input type="text" onchange="UpdatePrice('{{ route('staff.product.PriceUpdate') }}', 'special_price', '{{ $product->id }}', this.value)" data-id="{{ $product->id }}" class="form-control" value="{!! $product->special_price !== null ? $product->special_price:'' !!}"></td>
                         <td><input type="checkbox" {{ $product->feature_pro == 1 ? 'checked':'' }}  id="featureProd" data-toggle="toggle" data-onstyle="info" data-offstyle="danger" class="btn-sm" data-size="small" data-id="{{ $product->id }}" data-url="{{ route('staff.product.featureProduct') }}"></td>
                         <td>
                             <span class="badge badge-{{ $product->status == 'active' ? 'success':'danger' }}">{{ $product->status == 'active' ? 'Active':'Inactive' }}</span>
@@ -49,7 +49,8 @@
                             <div class="d-flex button-group">
                                 {{--<i class="bx bx-dots-horizontal " style="font-size: 20px"></i>--}}
                                 <a href="{{ route('staff.product.edit', base64_encode($product->id)) }}" class="btn btn-info mr-1 btn-sm"><i class="bx bx-edit" style="font-size: 15px"></i></a>
-                                <a href="javascript:" onclick="DeleteItems('{{ route('staff.product.destroy', $product->id) }}', '{{ $product->id }}')" class="btn btn-danger btn-sm"><i class="bx bx-trash" style="font-size: 15px"></i></a>
+                                <a href="javascript:" onclick="DeleteItems('{{ route('staff.product.destroy', $product->id) }}', '{{ $product->id }}')" class="btn btn-danger btn-sm"><i class="bx bx-trash"
+                                                                                                                                                                                         style="font-size: 15px"></i></a>
                             </div>
                         </td>
                     </tr>

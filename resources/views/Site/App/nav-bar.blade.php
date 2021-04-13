@@ -30,6 +30,9 @@
                             @endforeach
                         </ul>
                     </li>
+                    <li>
+                        <a href="{{ route('products') }}">All Product</a>
+                    </li>
                     <li><a href="javascript:avoid(0);">Blog</a></li>
                     <li><a href="javascript:avoid(0);">Contact</a></li>
                     <li class="float-right"><a href="https://1.envato.market/DdLk5" target="_blank">Buy Porto!<span class="tip tip-new tip-top">New</span></a></li>

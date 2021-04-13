@@ -13,7 +13,7 @@
                     <li class="breadcrumb-item"><a href="javascript:avoid(0)">{{ $SingleProduct->name }}</a></li>
                 </ol>
             </nav>
-            <div class="row">
+            <div class="row search-result">
                 <div class="col-lg-9 main-content">
                     <div class="product-single-container product-single-default">
                         <div class="row">
@@ -32,7 +32,7 @@
                                                 @foreach($myImage as $image)
                                                     <div class="owl-item cloned" style="width: 480.031px;">
                                                         <div class="product-item">
-                                                            <img class="product-single-image" src="{{ asset('uploads/product/'.$image) }}" alt="{{ $SingleProduct->name }}"
+                                                            <img style=" height: 300px; width: 300px" class="product-single-image" src="{{ asset('uploads/product/'.$image) }}" alt="{{ $SingleProduct->name }}"
                                                                  data-zoom-image="{{ asset('uploads/product/'.$image) }}">
                                                             <div class="zoomContainer" style="-webkit-transform: translateZ(0);position:absolute;left:0;top:0;height:480.016px;width:480.016px;">
                                                                 <div class="zoomWindowContainer" style="width: 400px;">
@@ -136,7 +136,8 @@
                                                                 class="btn btn-outline btn-down-icon bootstrap-touchspin-down" type="button"></button></span><input class="horizontal-quantity form-control" type="text"><span
                                                             class="input-group-btn input-group-append"><button class="btn btn-outline btn-up-icon bootstrap-touchspin-up" type="button"></button></span></div>
                                                 </div><!-- End .product-single-qty -->
-                                                <a href="javascript:;" data-url="{{ route('cart.add')  }}" data-slug="{{ $SingleProduct->slug }}" class="addCart btn btn-dark add-cart icon-shopping-cart" title="Add to Cart">Add to
+                                                <a href="javascript:;" data-url="{{ route('cart.add')  }}" data-slug="{{ $SingleProduct->slug }}" class="addCart btn btn-dark add-cart icon-shopping-cart" title="Add to Cart">Add
+                                                    to
                                                     Cart</a>
                                             </div>
 
@@ -421,7 +422,7 @@
                                                 </div>
                                             @endif
                                             <div class="btn-icon-group">
-                                                <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $product->slug }}" ><i class="icon-shopping-cart"></i></button>
+                                                <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $product->slug }}"><i class="icon-shopping-cart"></i></button>
                                             </div>
                                             <a href="{{ route('QuickViewProduct', [$product->slug]) }}" class="btn-quickview" title="Quick View">Quick View</a>
                                         </figure>
@@ -458,3 +459,4 @@
         </div><!-- End .container -->
     </main>
 @endsection
+

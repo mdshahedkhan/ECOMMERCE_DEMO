@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Fronted;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
@@ -34,7 +34,7 @@ class CartController extends Controller
                 'id'         => $product->id,
                 'name'       => $product->name,
                 'price'      => $price,
-                'quantity'   => $price,
+                'quantity'   => 1,
                 'attributes' => array(
                     'thumbnail' => $product->thumbnail,
                     'slug'      => $product->slug
@@ -46,4 +46,30 @@ class CartController extends Controller
         }
 
     }
+
+    public function CheCkItems(Request $request)
+    {
+        if ($request->ajax()) {
+            $CartItems = Cart::getContent();
+            return view('Site.components.CheckOutItems', compact('CartItems'));
+        }
+    }
+
+    public function destroy(Request $request)
+    {
+        if ($request->ajax()) {
+            if (Cart::remove($request->id)) {
+                return response()->json(['message' => 'Successfully Item Remove']);
+            }
+
+        }
+
+    }
+
+    public function clear()
+    {
+        Cart::clear();
+        return redirect()->back();
+    }
+
 }

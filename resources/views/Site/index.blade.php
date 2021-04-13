@@ -3,7 +3,7 @@
 @push('title' , 'Hello World')
 @push('CSS')
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@500&display=swap" rel="stylesheet"/>
 @endpush
 @section('content')
     <main class="main">
@@ -37,7 +37,7 @@
                 </div><!-- End .info-box -->
             </div>
 
-            <div class="row">
+            <div class="row search-result">
                 <div class="col-lg-9">
                     <div class="home-slider owl-carousel owl-theme owl-carousel-lazy mb-2" data-owl-options="{
 							'loop': false,
@@ -51,7 +51,8 @@
                                     <h4 class="text-white pb-4 mb-0">{{ $slider->title }}</h4>
                                     <h2 class="text-white mb-0" style="font-family: 'Kiwi Maru', serif;">{{ ucwords($slider->sub_title) }}</h2>
                                     <h3 class="text-white text-uppercase m-b-3">70% Off</h3>
-                                    <h5 class="text-white text-uppercase d-inline-block mb-0 ls-n-20 align-text-bottom">Starting At <b class="coupon-sale-text bg-secondary text-white d-inline-block">$<em class="align-text-top">199</em>99</b>
+                                    <h5 class="text-white text-uppercase d-inline-block mb-0 ls-n-20 align-text-bottom">Starting At <b class="coupon-sale-text bg-secondary text-white d-inline-block">$<em
+                                                class="align-text-top">199</em>99</b>
                                     </h5>
                                     <a href="{{ $slider->url }}" class="btn btn-dark btn-md ls-10">Shop Now!</a>
                                 </div><!-- End .banner-layer -->
@@ -109,18 +110,26 @@
 
                     <h2 class="section-title ls-n-10 m-b-4">Featured Products</h2>
 
-                    <div class="products-slider owl-carousel owl-theme dots-top m-b-1 pb-1">
+                    <div  class="products-slider owl-carousel owl-theme dots-top m-b-1 pb-1">
                         @foreach($FeatureProducts as $featurePro)
+                            @php
+                                $price = false;
+                                if ($featurePro->special_price_form == date('Y-m-d') && $featurePro->special_price_to == date('Y-m-d')){
+                                    $price = true;
+                                }
+                            @endphp
                             <div class="product-default inner-quickview inner-icon">
                                 <figure>
                                     <a href="{{ route('products.SingleProduct', $featurePro->slug) }}">
-                                        <img src="{{ asset('uploads/product/'.$featurePro->thumbnail) }}" style="width: 300px; height: 190px">
+                                        <img src="{{ asset('uploads/product/'.$featurePro->thumbnail) }}" alt="{{ $featurePro->name }}" style="width: 300px; height: 190px">
                                     </a>
-                                    <div class="label-group">
-                                        <div class="product-label label-hot">HOT</div>
-                                    </div>
+                                    @if($price)
+                                        <div class="label-group">
+                                            <div class="product-label label-hot">HOT</div>
+                                        </div>
+                                    @endif
                                     <div class="btn-icon-group">
-                                        <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
+                                        <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $featurePro->slug }}"><i class="icon-shopping-cart"></i></button>
                                     </div>
                                     <a href="{{ route('QuickViewProduct', [$featurePro->slug]) }}" id="quickView" class="btn-quickview" title="Quick View">Quick View</a>
                                 </figure>
@@ -138,13 +147,14 @@
                                             <span class="tooltiptext tooltip-top"></span>
                                         </div><!-- End .product-ratings -->
                                     </div><!-- End .product-container -->
+
                                     <div class="price-box">
-                                        <span class="product-price">$9.00</span>
+                                        <span class="product-price">${{ $price ? $featurePro->special_price : $featurePro->selling_price }}</span>
                                     </div><!-- End .price-box -->
                                 </div><!-- End .product-details -->
                             </div>
                         @endforeach
-                    </div><!-- End .featured-proucts -->
+                    </div><!-- End .featured-products -->
 
                     <div class="brands-slider owl-carousel owl-theme images-center mb-3" data-owl-options="{
 							'responsive': {

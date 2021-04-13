@@ -5,19 +5,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4702f265-5b2f-45a4-9be5-aae0f1e276de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Fronted/CartController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Site/checkout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderInfoController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/TestController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/OrderInfo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Payment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Shipping.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_075218_create_customers_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_075258_create_shippings_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_081202_create_orders_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_081214_create_order_infos_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_13_122305_create_payments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/CustomerSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/OrderInfoSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/PaymentSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/seeders/ShippingSeeder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/1202104130819356075fcd73475e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/202104130819356075fcd732137.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/2202104130819356075fcd734d16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/3202104130819356075fcd7352b5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/202104020749436067755799a61.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/2021040207573660677730a206f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/2021040208030160677875daecb.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/20210402080427606778cb021d6.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/slider/20210402080457606778e91d542.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Site/components/CheckOutItems.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Site/load_more_product.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Site/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Fronted/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Fronted/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ProductSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ProductSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Fronted/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Fronted/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/staff/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/staff/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/SliderSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SliderSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/assets/backend/assets/MainIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/backend/assets/MainIndex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/assets/frontend/Our.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/frontend/Our.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/All-Products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/All-Products.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(1).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(1).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(10).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(10).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(11).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(11).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(12).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(12).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(13).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(13).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(14).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(14).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(15).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(15).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(16).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(19).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(2).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(2).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(20).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(20).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(21).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(21).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(22).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(22).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(23).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(23).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(24).jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(25).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(25).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(26).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(26).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(27).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(27).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(28).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(28).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(29).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(29).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(3).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(3).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(30).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(30).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(31).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(31).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(32).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(32).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(33).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(33).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(34).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(34).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(4).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(4).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(5).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(5).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(6).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(6).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(7).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(7).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(8).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(8).jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/product/(9).jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/product/(9).jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/App/nav-bar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/App/nav-bar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Site/categoryProduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/categoryProduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/components/load-more.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/components/load-more.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Site/single-product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/single-product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/app/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/app/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/product/pagination.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/product/pagination.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/home.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/home.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -171,7 +240,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../BPCHS" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
@@ -179,14 +248,28 @@
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\SSIT-PROJECT\app\Http\Controllers\Frontend" />
+      <recent name="D:\xampp\htdocs\SSIT-PROJECT\app\Models" />
+    </key>
+  </component>
+  <component name="RunManager" selected="PHP Script.2021_04_09_130543_create_shippings_table.php">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <configuration name="2021_04_09_130543_create_shippings_table.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/database/migrations/2021_04_09_130543_create_shippings_table.php">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="PHP Script.2021_04_09_130543_create_shippings_table.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -220,6 +303,32 @@
       <workItem from="1617303070946" duration="12979000" />
       <workItem from="1617340242544" duration="968000" />
       <workItem from="1617345309829" duration="8522000" />
+      <workItem from="1617385110928" duration="1715000" />
+      <workItem from="1617392580951" duration="2113000" />
+      <workItem from="1617420609964" duration="3280000" />
+      <workItem from="1617434113689" duration="1299000" />
+      <workItem from="1617436060619" duration="507000" />
+      <workItem from="1617515989900" duration="2261000" />
+      <workItem from="1617536466700" duration="6942000" />
+      <workItem from="1617594017863" duration="528000" />
+      <workItem from="1617594827048" duration="5948000" />
+      <workItem from="1617624976270" duration="1275000" />
+      <workItem from="1617630625190" duration="15000" />
+      <workItem from="1617968215145" duration="14275000" />
+      <workItem from="1617992324744" duration="1191000" />
+      <workItem from="1618026174050" duration="632000" />
+      <workItem from="1618033316418" duration="5200000" />
+      <workItem from="1618064303258" duration="188000" />
+      <workItem from="1618145709366" duration="5887000" />
+      <workItem from="1618153267694" duration="2444000" />
+      <workItem from="1618211158429" duration="2826000" />
+      <workItem from="1618223201255" duration="710000" />
+      <workItem from="1618228279633" duration="689000" />
+      <workItem from="1618241886085" duration="117000" />
+      <workItem from="1618242730505" duration="2428000" />
+      <workItem from="1618315654793" duration="1285000" />
+      <workItem from="1618320426566" duration="1349000" />
+      <workItem from="1618328824851" duration="16080000" />
     </task>
     <servers />
   </component>
@@ -234,7 +343,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/Site/single-product.blade.php</url>
-          <line>459</line>
+          <line>460</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

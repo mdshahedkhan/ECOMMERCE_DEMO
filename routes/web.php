@@ -1,8 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Fronted\SiteController;
-use App\Http\Controllers\Fronted\CartController;
+use App\Http\Controllers\Frontend\SiteController;
+use App\Http\Controllers\Frontend\CartController;
+
+class Service
+{
+
+}
+
+Route::get('/sss', function (Service $service) {
+    return get_class($service);
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +39,10 @@ Route::get('/quick/{quick}', [SiteController::class, 'QuickViewProduct'])->name(
 Route::prefix('cart')->name('cart.')->group(function () {
     Route::get('/show', [CartController::class, 'index'])->name('show');
     Route::post('/add-item', [CartController::class, 'Store'])->name('add');
+    Route::post('/item', [CartController::class, 'CheCkItems'])->name('item');
+    Route::post('/remove-item', [CartController::class, 'destroy'])->name('destroy');
+    Route::get('/clear', [CartController::class, 'clear'])->name('clear');
 });
+
+Route::post('/load-more/product', [SiteController::class, 'Load_More_product'])->name('Load_More_product');
+Route::post('/product/search', [SiteController::class, 'Search'])->name('search');

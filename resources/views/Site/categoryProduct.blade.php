@@ -4,8 +4,11 @@
 {{--@section('nav-bar')
     @include('Site.App.nav-bar', $category)
 @endsection--}}
+@section('nav-bar')
+    @include('Site.App.nav-bar', $category)
+@endsection
 @section('content')
-    <main class="main">
+    <main class="main" >
         <div class="category-banner-container bg-gray">
             <div class="category-banner banner text-uppercase" style="background: no-repeat 60%/cover url('{{ asset('assets/frontend/assets/images/banners/banner-top.jpg') }}')">
                 <div class="container position-relative">
@@ -33,7 +36,6 @@
                     <li class="breadcrumb-item active" aria-current="page">Accessories</li>
                 </ol>
             </nav>
-
             <div class="row">
                 <div class="col-lg-9 main-content">
                     <nav class="toolbox">
@@ -51,15 +53,11 @@
                                         <option value="price-desc">Sort by price: high to low</option>
                                     </select>
                                 </div><!-- End .select-custom -->
-
-
                             </div><!-- End .toolbox-item -->
                         </div><!-- End .toolbox-left -->
-
                         <div class="toolbox-right">
                             <div class="toolbox-item toolbox-show">
                                 <label>Show:</label>
-
                                 <div class="select-custom">
                                     <select name="count" class="form-control">
                                         <option value="12">12</option>
@@ -80,63 +78,7 @@
                         </div><!-- End .toolbox-right -->
                     </nav>
 
-                    <div class="row">
-                        @foreach($products as $product)
-                            <div class="col-6 col-sm-4">
-                                <div class="product-default inner-quickview inner-icon">
-                                    <figure>
-                                        @php
-                                            $sp_price = false;
-                                        if($product->special_price_form <= date('Y-m-d') && $product->special_price_to >= date('Y-m-d')){
-                                            $sp_price = true;
-                                        }
-
-                                        @endphp
-                                        <a href="{{ route('products.SingleProduct', $product->slug) }}">
-                                            <img src="{{ asset('uploads/product/'.$product->thumbnail) }}" style="width: 300px; height: 220px" alt="{{ $product->name }}">
-                                        </a>
-                                        @if($sp_price)
-                                            <div class="label-group">
-                                                <div class="product-label label-hot">HOT</div>
-                                                <div class="product-label label-sale">-{{ sprintf('%d', (($product->selling_price-$product->special_price)/$product->selling_price) * 100) }}%</div>
-                                            </div>
-                                        @endif
-
-                                        <div class="btn-icon-group">
-                                            <button data-url="{{ route('cart.add') }}" class="btn-icon btn-add-cart addCart" data-slug="{{ $product->slug }}"><i class="icon-shopping-cart"></i></button>
-                                            <button class="btn-icon btn-add-cart addCart" data-url="{{ route('cart.add') }}" data-slug="{{ $product->slug }}"><i class="icon-shopping-cart"></i></button>
-                                        </div>
-                                        <a href="{{ route('QuickViewProduct', [$product->slug]) }}" id="quickView" class="btn-quickview" title="Quick View">Quick View</a>
-                                    </figure>
-                                    <div class="product-details">
-                                        <div class="category-wrap">
-                                            <div class="category-list">
-                                                {{--<a href="category.html" class="product-category">category</a>--}}
-                                            </div>
-                                            <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
-                                        </div>
-                                        <h2 class="product-title">
-                                            <a href="{{ route('products.SingleProduct', $product->slug) }}">{{ $product->name }}</a>
-                                        </h2>
-                                        <div class="ratings-container">
-                                            <div class="product-ratings">
-                                                <span class="ratings" style="width:100%"></span><!-- End .ratings -->
-                                                <span class="tooltiptext tooltip-top"></span>
-                                            </div><!-- End .product-ratings -->
-                                        </div><!-- End .product-container -->
-                                        <div class="price-box">
-                                            @if(!$sp_price)
-                                                <span class="old-price">{{ $product->selling_price }}</span>
-                                                <span class="product-price">{{ $product->special_price }}</span>
-                                            @else
-                                                <span class="product-price">{{ $product->selling_price }}</span>
-                                            @endif
-                                        </div><!-- End .price-box -->
-                                    </div><!-- End .product-details -->
-                                </div>
-                            </div><!-- End .col-sm-4 -->
-                        @endforeach
-                    </div><!-- End .row -->
+                    @include('Site.load_more_product')
                 </div><!-- End .col-lg-9 -->
 
                 <div class="sidebar-overlay"></div>
@@ -316,3 +258,30 @@
     </main><!-- End .main -->
 
 @endsection
+
+@push('JS')
+    <script>
+        Load_More_Data();
+
+        function Load_More_Data(id = '') {
+            $.ajax({
+                url: '{{ route('Load_More_product') }}',
+                method: "POST",
+                data: { id: id },
+                success: function (data) {
+                    $('.loading-overlay').hide();
+                    $('#LoadMoreBtn').remove();
+                    $('#DataAppend').append(data);
+                }
+            });
+        }
+
+        $(document).on('click', '#LoadMoreBtn', function () {
+            $('.loading-overlay').show();
+            let id = $(this).data('id');
+            console.log(id)
+            Load_More_Data(id)
+            $(this).html('Loading.....').attr('disabled', true);
+        });
+    </script>
+@endpush

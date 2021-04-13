@@ -23,8 +23,8 @@ class SliderSeeder extends Seeder
                 'title'      => $faker->name,
                 'sub_title'  => substr($faker->paragraph, 0, 59),
                 'url'        => $faker->url,
-                'start_date' => $faker->date('Y-m-d'),
-                'end_date'   => $faker->date('Y-m-d'),
+                'start_date' => date('Y-m-' . rand(1, 30)),
+                'end_date'   => date('Y-m-' . rand(1, 30)),
                 'image'      => '(' . rand(1, 3) . ').jpg',
                 'status'     => RandomStatus()
             ]);

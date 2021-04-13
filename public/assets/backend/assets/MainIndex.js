@@ -251,6 +251,22 @@ $(document).on('change', '#ChangeProductPrice', function () {
     });
 });
 
+function UpdatePrice(route, type, id, price) {
+    $('.loader').show();
+    $.ajax({
+        url: route,
+        method: 'POST',
+        data: { type: type, id: id, price: price },
+        success: function (data) {
+            $('.loader').hide();
+        }
+    });
+}
+
+$(document).ready(function () {
+
+});
+
 // Feature Product Add Request With Ajax Request Send
 $(document).on('change', '#featureProd', function () {
     let id = $(this).data('id');
@@ -402,7 +418,6 @@ function pos3_warning_noti(mess) {
 }
 
 
-
 // Brand Status Change With Ajax Request
 $('body').on('change', '#SliderStatus', function () {
     let id = $(this).data('id');
@@ -422,3 +437,4 @@ $('body').on('change', '#SliderStatus', function () {
         }
     });
 });
+

@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
-<!-- Mirrored from codervent.com/syndash/demo/vertical/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 11 Mar 2021 12:53:28 GMT -->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>

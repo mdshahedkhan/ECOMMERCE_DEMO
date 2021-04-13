@@ -213,8 +213,9 @@ class ProductController extends Controller
     public function PriceUpdate(Request $request)
     {
         if ($request->ajax()) {
+            $type = $request->type;
             $ProductPrice               = Product::find($request->id);
-            $ProductPrice->buying_price = $request->price;
+            $ProductPrice->$type = $request->price;
             $ProductPrice->save();
             return response()->json('Success');
         }
