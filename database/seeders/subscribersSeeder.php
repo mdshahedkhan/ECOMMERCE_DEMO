@@ -18,7 +18,6 @@ class subscribersSeeder extends Seeder
         $faker = Factory::create();
         foreach (range(1, 50) as $item) {
             Subscribers::create([
-                'customer_id' => rand(1, 50),
                 'email'       => $faker->email
             ]);
         }

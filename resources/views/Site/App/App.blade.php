@@ -145,9 +145,7 @@
                                 <span class="cart-count badge-circle" id="Items">{{ Cart::getContent()->count() }}</span>
                             </a>
                             <div class="dropdown-menu">
-                                <div class="dropdownmenu-wrapper" id="CartItems">
-
-                                </div><!-- End .dropdownmenu-wrapper -->
+                                <div class="dropdownmenu-wrapper" id="CartItems"></div><!-- End .dropdownmenu-wrapper -->
                             </div><!-- End .dropdown-menu -->
                         </div><!-- End .dropdown -->
                     </div><!-- End .header-right -->
@@ -155,9 +153,7 @@
             </div><!-- End .header-middle -->
         </header><!-- End .header -->
         @yield('nav-bar')
-
         @yield('content')
-
         <footer class="footer bg-dark">
             <div class="footer-middle">
                 <div class="container">
@@ -196,7 +192,6 @@
                                 </div><!-- End .social-icons -->
                             </div><!-- End .widget -->
                         </div><!-- End .col-lg-3 -->
-
                         <div class="col-lg-3 col-sm-6 pb-5 pb-sm-0">
                             <div class="widget">
                                 <h4 class="widget-title pb-1">Customer Service</h4>
@@ -207,7 +202,7 @@
                                     <li><a href="#">Shipping & Delivery</a></li>
                                     <li><a href="#">Orders History</a></li>
                                     <li><a href="#">Advanced Search</a></li>
-                                    <li><a href="my-account.html">My Account</a></li>
+                                    <li><a href="{{ Session::get('customer') ? route('customer.dashboard'):route('auth.login') }}">My Account</a></li>
                                     <li><a href="#">Careers</a></li>
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="#">Corporate Sales</a></li>

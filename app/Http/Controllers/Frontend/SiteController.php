@@ -19,10 +19,6 @@ class SiteController extends Controller
         $FeatureProducts = Product::Active()->where('feature_pro', 1)->get();
         return view('Site.index')->with(['Categories' => $categories, 'Sliders' => $Sliders, 'FeatureProducts' => $FeatureProducts]);
     }
-
-    protected $slug3;
-    protected $slug2;
-
     public function get_products($slug, $slug2, $slug3 = "")
     {
         if ($slug3) {

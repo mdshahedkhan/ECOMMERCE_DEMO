@@ -5,11 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4702f265-5b2f-45a4-9be5-aae0f1e276de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/Site/payments/Success.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/subscribersSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/subscribersSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/All-Products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/All-Products.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/payments/review_payments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/payments/review_payments.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -289,7 +294,7 @@
       <workItem from="1618817032387" duration="9451000" />
       <workItem from="1618831077596" duration="1198000" />
       <workItem from="1618832316585" duration="56000" />
-      <workItem from="1618842878207" duration="3216000" />
+      <workItem from="1618842878207" duration="19101000" />
     </task>
     <servers />
   </component>

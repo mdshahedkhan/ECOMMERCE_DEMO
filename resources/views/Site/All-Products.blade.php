@@ -29,17 +29,13 @@
                                 <option value="price-desc">Sort by price: high to low</option>
                             </select>
                         </div><!-- End .select-custom -->
-
-
                     </div><!-- End .toolbox-item -->
                 </div><!-- End .toolbox-left -->
-
                 <div class="toolbox-right">
                     <div class="toolbox-item toolbox-show">
-                        <label>Show:</label>
-
+                        <label for="count">Show:</label>
                         <div class="select-custom">
-                            <select name="count" class="form-control">
+                            <select id="count" name="count" class="form-control">
                                 <option value="12">12</option>
                                 <option value="24">24</option>
                                 <option value="36">36</option>
@@ -71,7 +67,6 @@
 @push('JS')
     <script>
         Load_More_Data();
-
         function Load_More_Data(id = '') {
             $.ajax({
                 url: '{{ route('Load_More_Data') }}',
