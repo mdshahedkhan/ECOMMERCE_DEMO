@@ -2,21 +2,17 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Models\Shipping;
-use Cart;
 use DB;
+use Cart;
 use Exception;
-use GuzzleHttp\Promise\Create;
+use App\Models\Shipping;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Session;
 
 
 class CheckoutController extends Controller
 {
-    public function __construct()
-    {
-
-    }
 
     public function renderPage()
     {
@@ -36,20 +32,15 @@ class CheckoutController extends Controller
             'phone'      => 'required|min:11|max:11'
         ]);
         try {
-            $exception = DB::transaction(function () use ($request) {
-                Shipping::create([
-                    'first_name' => $request->first_name,
-                    'last_name'  => $request->last_name,
-                    'phone'      => $request->phone,
-                    'address'    => $request->address
-                ]);
-            });
-            if (is_null($exception)) {
-                return "Success";
-            } else {
-                throw new Exception();
-            }
-        } catch (Exception $ex) {
+            $shipping = Shipping::create([
+                'first_name' => $request->first_name,
+                'last_name'  => $request->last_name,
+                'phone'      => $request->phone,
+                'address'    => $request->address
+            ]);
+            Session::put('shipping_id', $shipping->id);
+            return redirect()->route('checkout.reviews_payments');
+        } catch (Exception $exception) {
 
         }
 

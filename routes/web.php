@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\SiteController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CustomerController;
 use App\Http\Controllers\Frontend\CheckoutController;
+use App\Http\Controllers\Frontend\ShippingController;
 
 
 /*
@@ -17,8 +18,12 @@ use App\Http\Controllers\Frontend\CheckoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 // Home Page Route
 Route::get('/', [SiteController::class, 'index'])->name('home');
+//Subscriber
+Route::post('/subscriber', [CustomerController::class, 'Subscriber'])->name('Subscriber');
 // Show All Product
 Route::get('/all-products', [SiteController::class, 'Get_All_products'])->name('products');
 // Product Load More Button
@@ -43,6 +48,7 @@ Route::prefix('cart')->name('cart.')->group(function () {
 Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/', [CheckoutController::class, 'renderPage'])->name('index');
     Route::post('/shipping', [CheckoutController::class, 'ShippingStore'])->name('shipping');
+    Route::get('/reviews', [ShippingController::class, 'review_payments'])->name('reviews_payments');
 });
 
 Route::post('/load-more/product', [SiteController::class, 'Load_More_product'])->name('Load_More_product');
@@ -50,15 +56,12 @@ Route::post('/product/search', [SiteController::class, 'Search'])->name('search'
 
 // Customer Authentication Route Define
 Route::prefix('auth')->name('auth.')->group(function () {
-    // Login Login Form Show
     Route::get('/login', [CustomerController::class, 'Render'])->name('login');
-    // Login Form Submit
     Route::post('/login', [CustomerController::class, 'login'])->name('login');
-    // Register Form Submit
     Route::post('/register', [CustomerController::class, 'register'])->name('register');
 });
 
-Route::prefix('customer')->name('customer.')->group(function () {
+Route::prefix('customer')->name('customer.')->middleware('customer')->group(function () {
     Route::get('/dashboard', [CustomerController::class, 'dashboard'])->name('dashboard');
     Route::post('/logout', [CustomerController::class, 'logout'])->name('logout');
 });

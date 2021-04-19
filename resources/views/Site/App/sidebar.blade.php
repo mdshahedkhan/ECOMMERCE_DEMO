@@ -35,13 +35,12 @@
     <div class="widget widget-newsletters bg-gray text-center">
         <h3 class="widget-title text-uppercase">Subscribe Newsletter</h3>
         <p class="mb-2">Get all the latest information on Events, Sales and Offers. </p>
-        <form action="#">
+        <form action="{{ route('Subscriber') }}" method="post">
             <div class="form-group position-relative sicon-envolope-letter">
-                <input type="email" class="form-control" name="newsletter-email" placeholder="Email address">
+                @csrf
+                <input type="email" class="form-control is-invalid @error('email') is-invalid @enderror" name="email" placeholder="Email address">
             </div><!-- Endd .form-group -->
             <input type="submit" class="btn btn-primary btn-md" value="Subscribe">
         </form>
     </div><!-- End .widget -->
-
-
 </aside><!-- End .col-lg-3 -->

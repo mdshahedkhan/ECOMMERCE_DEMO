@@ -5,61 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4702f265-5b2f-45a4-9be5-aae0f1e276de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Livewire/HeaderSearchComponent.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Items.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Http/Resources/PostResource.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Mail/WelcomeMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Models/Subscribers.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/livewire.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/notify.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/migrations/2021_04_14_175147_create_subscribers_table.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/subscribersSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/frontend/jquery.validate.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/frontend/validin.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/assets/frontend/validin.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/livewire/livewire.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/livewire/livewire.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/livewire/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/css/app.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/css/notify.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/drake-error.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/drake-success.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/images/notifications.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/app.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/notify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/js/notify.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/vendor/mckenziearts/laravel-notify/mix-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Site/Customer/dashboard.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Site/Customer/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Site/Mail/welcome.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/Site/Shipping.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/livewire/header-search-component.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/SSIT-PROJECT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SSIT-PROJECT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Middleware/Customer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/Site/payments/review_payments.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Helpers/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderInfoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderInfoController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_12_075218_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_075218_create_customers_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CustomerSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CustomerSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/OrderInfoSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/OrderInfoSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/OrderSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/PaymentSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/PaymentSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ShippingSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ShippingSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/frontend/Our.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/frontend/Our.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/components/CheckOutItems.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/components/CheckOutItems.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_14_175147_create_subscribers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_14_175147_create_subscribers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/App/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/App/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Site/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -336,7 +294,8 @@
       <workItem from="1618759551851" duration="73000" />
       <workItem from="1618759640081" duration="10518000" />
       <workItem from="1618786940571" duration="609000" />
-      <workItem from="1618817032387" duration="2701000" />
+      <workItem from="1618817032387" duration="9451000" />
+      <workItem from="1618831077596" duration="1041000" />
     </task>
     <servers />
   </component>

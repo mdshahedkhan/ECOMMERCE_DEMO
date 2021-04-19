@@ -434,3 +434,9 @@
         </div><!-- End .container -->
     </main><!-- End .main -->
 @endsection
+
+@push('JS')
+    <script>
+        $(document)
+    </script>
+@endpush

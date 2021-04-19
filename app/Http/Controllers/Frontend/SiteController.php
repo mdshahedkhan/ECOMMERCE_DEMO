@@ -93,7 +93,6 @@ class SiteController extends Controller
         }
     }
 
-
     public function Search(Request $request)
     {
         $Searching_product = str_replace('%', ' ', $request->search);

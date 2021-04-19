@@ -9,11 +9,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
-use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Validator;
 
 class CustomerController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('customer')->except([
+            'Render',
+            'login',
+            'register',
+            'logout',
+            'Subscriber'
+        ]);
+    }
 
     public function Render()
     {
@@ -70,32 +79,29 @@ class CustomerController extends Controller
         } else {*/
         $exception = DB::transaction(function () use ($request) {
             try {
-                $Auth             = new Customer();
-                $Auth->first_name = $request->first_name;
-                $Auth->last_name  = $request->last_name;
-                $Auth->email      = $request->r_email;
-                $Auth->phone      = $request->phone;
-                $Auth->password   = bcrypt($request->r_password);
-                $Auth->save();
+                $customer = Customer::create([
+                    'first_name' => $request->first_name,
+                    'last_name'  => $request->last_name,
+                    'email'      => $request->r_email,
+                    'phone'      => $request->phone,
+                    'password'   => bcrypt($request->r_password)
+                ]);
                 if (isset($request->newsletter_signup) || $request->newsletter_signup == 'on') {
                     $subscriber        = new Subscribers();
                     $subscriber->email = $request->r_email;
                     $subscriber->save();
                 }
-
                 notify()->success('Yah! you are successfully logged in.');
                 session()->flash('success', 'you are successfully logged in.');
-
+                Session::put('customer', $customer->id);
+                Session::put('c_email', $customer->email);
+                Session::put('c_name', $customer->first_name . ' ' . $customer->last_name);
             } catch (Exception $ex) {
                 SetMessage('danger', $ex->getMessage());
                 return redirect()->back();
             }
         });
-        Session::put('customer', $request->r_email);
-        Session::put('c_email', $request->r_email);
-        Session::put('c_name', $request->first_name . ' ' . $request->last_name);
         return redirect()->route('customer.dashboard');
-
     }
 
 
@@ -115,6 +121,17 @@ class CustomerController extends Controller
         Session::forget('c_email');
         return redirect()->route('auth.login');
 
+    }
+
+    public function Subscriber(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email|unique:subscribers',
+        ]);
+        $Subscriber        = new Subscribers();
+        $Subscriber->email = $request->email;
+        $Subscriber->save();
+        return redirect()->back();
     }
 
 
