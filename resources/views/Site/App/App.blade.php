@@ -19,20 +19,41 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/vendor/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/frontend/assets/vendor/simple-line-icons/css/simple-line-icons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/frontend/assets/css/style.min.css') }}">
+    <style>
+        .header-search {
+            position: relative;
+        }
+
+        .search_result {
+            display: none;
+            position: absolute;
+            top: 41px;
+            z-index: 11;
+            width: 100%;
+        }
+
+        .search_result li {
+            list-style: none;
+            padding: 5px;
+            border-bottom: 1px solid #f0f0f0;
+            background-color: #fff;
+        }
+
+        .search_result li:hover {
+            background-color: #eee;
+            cursor: pointer;
+        }
+
+        .pointer-events-none {
+            z-index: 9999;
+        }
+    </style>
     @stack('CSS')
 </head>
 <body>
+    @include('notify::messages')
+    <x:notify-messages/>
     <div class="page-wrapper">
-        <div class="top-notice text-white bg-dark">
-            <div class="container text-center">
-                <h5 class="d-inline-block mb-0 mr-2">Get Up to <b>40% OFF</b> New-Season Styles</h5>
-                <a href="" class="category">MEN</a>
-                <a href="" class="category ml-2 mr-3">WOMEN</a>
-                <small>* Limited time only</small>
-                <button title="Close (Esc)" type="button" class="mfp-close">×</button>
-            </div><!-- End .container -->
-        </div><!-- End .top-notice -->
-
         <header class="header">
             <div class="header-top bg-primary text-uppercase">
                 <div class="container">
@@ -64,12 +85,20 @@
                             <a href="#">Links</a>
                             <div class="header-menu">
                                 <ul>
-                                    <li><a href="my-account.html">Track Order </a></li>
-                                    <li><a href="about.html">About</a></li>
-                                    <li><a href="category.html">Our Stores</a></li>
-                                    <li><a href="blog.html">Blog</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="#">Help &amp; FAQs</a></li>
+                                    <li><a href="">Track Order </a></li>
+                                    <li><a href="">About</a></li>
+                                    <li><a href="">Our Stores</a></li>
+                                    <li><a href="">Blog</a></li>
+                                    @if(!Session::get('customer'))
+                                        <li><a href="{{ route('auth.login') }}">Login</a></li>
+                                        <li><a href="{{ route('auth.login') }}">Register</a></li>
+                                    @else
+                                        <li><a href="{{ route('customer.dashboard') }}">Dashboard</a></li>
+                                        <li><a href="{{ route('customer.logout') }}" onclick="event.preventDefault(); document.getElementById('LogoutForm').submit()">Logout</a></li>
+                                        <form style="display: none" method="post" action="{{ route('customer.logout') }}" id="LogoutForm">
+                                            @csrf
+                                        </form>
+                                    @endif
                                 </ul>
                             </div><!-- End .header-menu -->
                         </div><!-- End .header-dropown -->
@@ -97,44 +126,15 @@
                     </div><!-- End .header-left -->
 
                     <div class="header-right w-lg-max pl-2">
-                        <div class="header-search header-icon header-search-inline header-search-category w-lg-max mr-lg-4">
-                            <a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
-                            <form action="#" method="get">
-                                <div class="header-search-wrapper">
-                                    <input type="search" class="form-control" name="search_product" id="search_product" placeholder="Search..." required>
-                                    <div class="select-custom">
-                                        <select id="cat" name="cat">
-                                            <option value="">All Categories</option>
-                                            <option value="4">Fashion</option>
-                                            <option value="12">- Women</option>
-                                            <option value="13">- Men</option>
-                                            <option value="66">- Jewellery</option>
-                                            <option value="67">- Kids Fashion</option>
-                                            <option value="5">Electronics</option>
-                                            <option value="21">- Smart TVs</option>
-                                            <option value="22">- Cameras</option>
-                                            <option value="63">- Games</option>
-                                            <option value="7">Home &amp; Garden</option>
-                                            <option value="11">Motors</option>
-                                            <option value="31">- Cars and Trucks</option>
-                                            <option value="32">- Motorcycles &amp; Powersports</option>
-                                            <option value="33">- Parts &amp; Accessories</option>
-                                            <option value="34">- Boats</option>
-                                            <option value="57">- Auto Tools &amp; Supplies</option>
-                                        </select>
-                                    </div><!-- End .select-custom -->
-                                    <button class="btn p-0 icon-search-3" type="submit"></button>
-                                </div><!-- End .header-search-wrapper -->
-                            </form>
-                        </div><!-- End .header-search -->
-
+                        @livewire('header-search-component')
+                        <!-- End .header-search -->
                         <div class="header-contact d-none d-lg-flex align-items-center pr-xl-5 mr-3 ml-xl-5">
                             <i class="icon-phone-2"></i>
                             <h6 class="pt-1 line-height-1">Call us now<a href="tel:#" class="d-block text-dark ls-10 pt-1">+123 5678 890</a></h6>
                         </div><!-- End .header-contact -->
-
-                        <a href="login.html" class="header-icon login-link"><i class="icon-user-2"></i></a>
-
+                        @if(Session::get('customer'))
+                            <a href="{{ route('auth.login') }}" class="header-icon login-link"><i class="icon-user-2"></i></a>
+                        @endif
                         <a href="#" class="header-icon"><i class="icon-wishlist-2"></i></a>
 
                         <div class="dropdown cart-dropdown">
@@ -142,7 +142,6 @@
                                 <i class="icon-shopping-cart"></i>
                                 <span class="cart-count badge-circle" id="Items">{{ Cart::getContent()->count() }}</span>
                             </a>
-
                             <div class="dropdown-menu">
                                 <div class="dropdownmenu-wrapper" id="CartItems">
 
@@ -271,29 +270,29 @@
         </div><!-- End .newsletter-popup-content -->
     </div>--}}<!-- End .newsletter-popup -->
     <!-- Add Cart Modal -->
-{{--<div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-body add-cart-box text-center">
-                <p>You've just added this product to the<br>cart:</p>
-                <h4 id="productTitle"></h4>
-                <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
-                <div class="btn-actions">
-                    <a href="">
-                        <button class="btn-primary">Go to cart page</button>
-                    </a>
-                    <a href="#">
-                        <button class="btn-primary" data-dismiss="modal">Continue</button>
-                    </a>
+    {{--<div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body add-cart-box text-center">
+                    <p>You've just added this product to the<br>cart:</p>
+                    <h4 id="productTitle"></h4>
+                    <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
+                    <div class="btn-actions">
+                        <a href="">
+                            <button class="btn-primary">Go to cart page</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn-primary" data-dismiss="modal">Continue</button>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>--}}
+    </div>--}}
 
     <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
-<!-- Plugins JS File -->
+    <!-- Plugins JS File -->
     <script src="{{ asset('assets/frontend/assets/js/jquery.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/assets/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/frontend/assets/js/plugins.min.js') }}"></script>

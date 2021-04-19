@@ -54,7 +54,7 @@
 
                                                 <div class="float-right">
                                                     <a href="#" title="Edit product" class="btn-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
-                                                    <a href="#" title="Remove product" class="btn-remove"><span class="sr-only">Remove</span></a>
+                                                    <a href="javascript:avoid(0)" id="cartItemRemove" data-url="{{ route('cart.destroy') }}" title="Remove product" class="btn-remove"><span class="sr-only">Remove</span></a>
                                                 </div><!-- End .float-right -->
                                             </td>
                                         </tr>

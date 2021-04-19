@@ -37,7 +37,7 @@
                 </div><!-- End .info-box -->
             </div>
 
-            <div class="row search-result">
+            <div class="row search-result result">
                 <div class="col-lg-9">
                     <div class="home-slider owl-carousel owl-theme owl-carousel-lazy mb-2" data-owl-options="{
 							'loop': false,
@@ -60,7 +60,6 @@
                         @endforeach
 
                     </div><!-- End .home-slider -->
-
                     <div class="banners-container m-b-2 owl-carousel owl-theme" data-owl-options="{
 							'dots': false,
 							'margin': 20,

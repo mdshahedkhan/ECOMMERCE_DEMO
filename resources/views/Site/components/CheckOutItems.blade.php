@@ -2,7 +2,7 @@
     <div class="dropdown-cart-header">
         <span>{{ Cart::getContent()->count() }} Items</span>
 
-        <a href="" class="float-right">View Cart</a>
+        <a href="{{ route('cart.show') }}" class="float-right">View Cart</a>
     </div><!-- End .dropdown-cart-header -->
 
     <div class="dropdown-cart-products">
@@ -32,7 +32,7 @@
     </div><!-- End .dropdown-cart-total -->
 
     <div class="dropdown-cart-action">
-        <a href="{{ route('cart.show') }}" class="btn btn-dark btn-block">Checkout</a>
+        <a href="{{ route('checkout.index') }}" class="btn btn-dark btn-block">Checkout</a>
     </div><!-- End .dropdown-cart-total -->
 @else
     <h6 class="text-center">Your shopping bag is empty.

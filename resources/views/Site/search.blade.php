@@ -1,5 +1,9 @@
 @if($result->isEmpty())
-    <h3 class="text-center" style="color: #727272; text-align: center; margin-right: 200px">{{ $Searching_product }}</h3>
+    <div class="text-center widget-area" style="margin-left: 430px; height: 50vh; padding-top: 150px;">
+        <h3 style="color: #727272; text-align: center; margin-right: 200px">No results found for "{{ $Searching_product }}"</h3>
+        <br>
+        <p>We're sorry. We cannot find any matches for your search term.</p>
+    </div>
 @else
     @php
         $i=0;

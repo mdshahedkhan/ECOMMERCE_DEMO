@@ -7,11 +7,8 @@ use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Slider;
-use http\Env\Url;
 use Illuminate\Http\Request;
 use Cart;
-use Symfony\Component\String\Slugger\SluggerInterface;
-use function PHPUnit\Framework\exactly;
 
 class SiteController extends Controller
 {
@@ -38,7 +35,8 @@ class SiteController extends Controller
             $GLOBALS['Product'] = $products = Product::whereIn('category_id', collect($Category)->merge(collect($categories_id)))->where('status', 'active')->limit(10)->get();
         }
         $brands_id       = $products->pluck('brand_id')->unique();
-        $brands          = Brand::select('id', 'name', 'status')->with('products')->where('status', Brand::ACTIVE_BRAND)->whereIn('id', $brands_id)->get()
+        $brands          = Brand::select('id', 'name', 'status')->with('products')->where('status', Brand::ACTIVE_BRAND)
+            ->whereIn('id', $brands_id)->get()
             ->map(function ($brand) use ($products) {
                 $brand->products = $products->where('brand_id', $brand->id);
                 return $brand;
@@ -96,12 +94,11 @@ class SiteController extends Controller
     }
 
 
-    // Live Search
     public function Search(Request $request)
     {
         $Searching_product = str_replace('%', ' ', $request->search);
         $result            = Product::where('name', 'like', '%' . $Searching_product . '%')->Active()->get();
-        return view('Site.search', compact('result', 'Searching_product'));
+        return view('Site.search', compact('result', 'Searching_product'))->with(['data' => $result]);
     }
 
 }

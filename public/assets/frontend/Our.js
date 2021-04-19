@@ -83,8 +83,21 @@ $(document).on('keyup', '#search_product', function () {
         type: "POST",
         data: { search: Search_query },
         success: function (res) {
+            let result_append = $('.search_result').html('');
             let result = $('.search-result').html('');
-            result.append(res);
+            FetchData(res.data)
+            //result_append.append('<li onclick="select(this)">'+FetchData(res.data)+'</li>');
+            result.append(res)
         }
     });
+    $.ajaxError(function (event, request, settings){
+        console.log(settings.url);
+    });
 });
+
+function FetchData(data) {
+    $.each(data, function (key, value) {
+        return $('.search_result').append('<img src="" alt="">' +
+            '<a href="/products/' + value.slug + '"><li>' + value.name + '</li></a>');
+    });
+}

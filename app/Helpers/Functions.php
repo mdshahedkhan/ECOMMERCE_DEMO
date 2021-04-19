@@ -158,5 +158,8 @@ function Site_Category($categories)
     return $output;
 }
 
-
-
+function Random_Status()
+{
+    $rand = ['pending' => 'pending', 'success' => 'success', 'shipped' => 'shipped', 'return' => 'return'];
+    return array_rand($rand);
+}
