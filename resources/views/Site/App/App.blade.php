@@ -80,7 +80,7 @@
                     </div><!-- End .header-left -->
 
                     <div class="header-right header-dropdowns ml-0 ml-sm-auto">
-                        <p class="top-message mb-0 mr-lg-5 pr-3 d-none d-sm-block">Welcome To Porto!</p>
+                        <a href="{{ route('home') }}"><p class="top-message mb-0 mr-lg-5 pr-3 d-none d-sm-block">Welcome To Porto!</p></a>
                         <div class="header-dropdown dropdown-expanded mr-3">
                             <a href="#">Links</a>
                             <div class="header-menu">
@@ -133,7 +133,9 @@
                             <h6 class="pt-1 line-height-1">Call us now<a href="tel:#" class="d-block text-dark ls-10 pt-1">+123 5678 890</a></h6>
                         </div><!-- End .header-contact -->
                         @if(Session::get('customer'))
-                            <a href="{{ route('auth.login') }}" class="header-icon login-link"><i class="icon-user-2"></i></a>
+                            <a href="{{ route('customer.dashboard') }}" class="header-icon "><i class="icon-user-2"></i></a>
+                        @else
+                            <a href="{{  route('auth.login') }}" class="header-icon"><i class="icon-user-2"></i></a>
                         @endif
                         <a href="#" class="header-icon"><i class="icon-wishlist-2"></i></a>
 

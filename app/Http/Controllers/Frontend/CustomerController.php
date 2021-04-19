@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use Cart;
 use Exception;
 use App\Models\Customer;
 use App\Models\Subscribers;
@@ -47,6 +48,9 @@ class CustomerController extends Controller
                         Session::put('customer', $customer->id);
                         Session::put('c_name', $customer->first_name . ' ' . $customer->last_name);
                         Session::put('c_email', $customer->email);
+                        if (Cart::getContent()->count() > 0) {
+                            return redirect()->route('checkout.index');
+                        }
                         return redirect()->route('customer.dashboard');
                     } else {
                         session()->flash('messages', $messages);

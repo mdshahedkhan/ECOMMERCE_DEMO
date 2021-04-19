@@ -13,5 +13,6 @@ class ShippingController extends Controller
         if (Session::get('shipping_id')) {
             return view('Site.payments.review_payments');
         }
+        return redirect()->route('home');
     }
 }

@@ -16,9 +16,13 @@ class CheckoutController extends Controller
 
     public function renderPage()
     {
-        if (Cart::getContent()->count() > 0) {
-            $CartItems = Cart::getContent();
-            return view('Site.Shipping', compact('CartItems'));
+        if (Session::get('customer')) {
+            if (Cart::getContent()->count() > 0) {
+                $CartItems = Cart::getContent();
+                return view('Site.Shipping', compact('CartItems'));
+            }
+        }else{
+            return redirect()->route('auth.login');
         }
         return redirect()->route('products');
     }

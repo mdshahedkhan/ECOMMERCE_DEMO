@@ -45,6 +45,8 @@ Route::prefix('cart')->name('cart.')->group(function () {
     Route::post('/remove-item', [CartController::class, 'destroy'])->name('destroy');
     Route::get('/clear', [CartController::class, 'clear'])->name('clear');
 });
+
+
 Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/', [CheckoutController::class, 'renderPage'])->name('index');
     Route::post('/shipping', [CheckoutController::class, 'ShippingStore'])->name('shipping');
