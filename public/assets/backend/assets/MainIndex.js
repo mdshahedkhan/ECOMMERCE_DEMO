@@ -438,3 +438,33 @@ $('body').on('change', '#SliderStatus', function () {
     });
 });
 
+
+// Order Status Change Id Base
+function StatusChange(route, id, statusType) {
+    let status = statusType.val();
+    $('.loader').show();
+    $.ajax({
+        url: route,
+        method: "POST",
+        data: { id: id, status: status },
+        success: function (res) {
+            if (res.status == 200) {
+                $('.loader').hide();
+            }
+        }
+    });
+}
+
+
+function quickEdit(route) {
+    $('.loader').show();
+    $.ajax({
+        url: route,
+        method: "POST",
+        success: function (res) {
+            const myModal = $('#exampleModal3').html('');
+            $('.loader').hide();
+            myModal.append(res);
+        }
+    });
+}

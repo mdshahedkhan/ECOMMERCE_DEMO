@@ -52,4 +52,9 @@ class OrderController extends Controller
     {
         return $request->all();
     }
+
+    public function quickEdit(Request $request)
+    {
+        return view('staff.order.quickEdit');
+    }
 }

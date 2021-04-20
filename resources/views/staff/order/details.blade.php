@@ -63,7 +63,8 @@
                                         <div class="input-group-prepend">
                                             <button class="btn btn-secondary" type="button">Shipping Charge</button>
                                         </div>
-                                        <input type="number" id="shipping_charge" onchange="StatusChange('{{ route('staff.order.shipping_charge') }}', '{{ $order->id }}', $('#shipping_charge'))" class="form-control" placeholder="Enter Shipping Charge 00&#2547">
+                                        <input type="number" id="shipping_charge" onchange="StatusChange('{{ route('staff.order.shipping_charge') }}', '{{ $order->id }}', $('#shipping_charge'))" class="form-control"
+                                               placeholder="Enter Shipping Charge 00&#2547">
                                     </div>
                                 </div>
                             </table>
@@ -221,21 +222,3 @@
         </div>
     </div>
 @endsection
-@push('JS')
-    <script>
-        function StatusChange(route, id, statusType) {
-            let status = statusType.val();
-            $('.loader').show();
-            $.ajax({
-                url: route,
-                method: "POST",
-                data: { id: id, status: status },
-                success: function (res) {
-                    if (res.status == 200) {
-                        $('.loader').hide();
-                    }
-                }
-            });
-        }
-    </script>
-@endpush

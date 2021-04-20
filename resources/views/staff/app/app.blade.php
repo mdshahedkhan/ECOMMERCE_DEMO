@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title') - SSIT Admin</title>
     <!--favicon-->
-    <link rel="icon" href="{{  asset('assets/backend/assets/images/favicon-32x32.png') }}" type="image/png" />
+    <link rel="icon" href="{{  asset('assets/backend/assets/images/favicon-32x32.png') }}" type="image/png"/>
     <!-- Vector CSS -->
     <link href="{{  asset('assets/backend/assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
     <!--plugins-->
@@ -19,8 +19,8 @@
     <script src="{{  asset('assets/backend/assets/js/pace.min.js') }}"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{  asset('assets/backend/assets/css/bootstrap.min.css') }}"/>
-    {{--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto&amp;display=swap" />--}}
-    <!-- Icons CSS -->
+{{--<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&amp;family=Roboto&amp;display=swap" />--}}
+<!-- Icons CSS -->
     <link rel="stylesheet" href="{{  asset('assets/backend/assets/css/icons.css') }}"/>
     <!-- App CSS -->
     @stack('CSS')
@@ -80,10 +80,10 @@
                         <div class="menu-title">Slider</div>
                     </a>
                 </li>
-                <li>
+                <li class="{{ request()->is('staff/order/*') ? 'mm-active':'' }}">
                     <a href="{{ route('staff.order.index') }}">
                         <div class="parent-icon icon-color-2"><i class="bx bx-list-ol"></i></div>
-                        <div class="menu-title">Orders</div>
+                        <div class="menu-title">Order Manage</div>
                     </a>
                 </li>
                 <li>
@@ -263,7 +263,7 @@
     <!-- Vector map JavaScript -->
     <script src="{{  asset('assets/backend/assets/plugins/apexcharts-bundle/js/apexcharts.min.js') }}"></script>
     <script src="{{  asset('assets/backend/assets/js/index2.js') }}"></script>
-    @stack('JS')
+@stack('JS')
 <!-- App JS -->
     <script src="{{  asset('assets/backend/assets/js/app.js') }}"></script>
     <script src="{{ asset('assets/backend/assets/sweetalert2@10.js') }}"></script>
