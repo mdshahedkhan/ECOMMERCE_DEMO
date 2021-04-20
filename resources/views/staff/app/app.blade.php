@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="javascript:">
+                    <a href="{{ route('staff.order.index') }}">
                         <div class="parent-icon icon-color-2"><i class="bx bx-list-ol"></i></div>
                         <div class="menu-title">Orders</div>
                     </a>

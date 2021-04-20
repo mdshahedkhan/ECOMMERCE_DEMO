@@ -19,13 +19,13 @@ class DatabaseSeeder extends Seeder
             BrandSeeder::class,
             CategorySeeder::class,
             ProductSeeder::class,
-            SliderSeeder::class,
+            /*SliderSeeder::class,
             CustomerSeeder::class,
             ShippingSeeder::class,
             OrderSeeder::class,
             OrderInfoSeeder::class,
             PaymentSeeder::class,
-            subscribersSeeder::class,
+            subscribersSeeder::class,*/
         ]);
     }
 }

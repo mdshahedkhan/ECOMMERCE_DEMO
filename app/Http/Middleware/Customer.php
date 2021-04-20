@@ -20,7 +20,7 @@ class Customer
         if (Session::get('customer')) {
             return $next($request);
         } else {
-            return redirect('/');
+            return redirect()->route('auth.login');
         }
     }
 }

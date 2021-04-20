@@ -163,3 +163,8 @@ function Random_Status()
     $rand = ['pending' => 'pending', 'success' => 'success', 'shipped' => 'shipped', 'return' => 'return'];
     return array_rand($rand);
 }
+
+function Status()
+{
+    return ['pending' => 'pending', 'success' => 'success', 'shipped' => 'shipped', 'return' => 'return'];
+}

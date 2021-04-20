@@ -5,16 +5,32 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4702f265-5b2f-45a4-9be5-aae0f1e276de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/Site/payments/Success.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/120210420043607607e5a3707cdf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/120210420083729607e92c943650.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/20210420043607607e5a37075ca.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/20210420083729607e92c9432bf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/220210420043607607e5a3707ef8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/220210420083729607e92c94385d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/320210420043607607e5a370810d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/uploads/product/320210420083729607e92c943a67.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/staff/order/details.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/staff/order/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PaymentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ShippingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/SiteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/subscribersSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/subscribersSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/All-Products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/All-Products.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/App/App.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Helpers/Functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Helpers/Functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/staff/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/staff/DashboardController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Customer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/OrderInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/OrderInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_04_12_075218_create_customers_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_04_12_075218_create_customers_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/Site/Customer/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/Customer/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/Site/payments/review_payments.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/Site/payments/review_payments.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/app/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/app/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/staff/app/dashboard-content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/staff/app/dashboard-content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/staff.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/staff.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -294,7 +310,8 @@
       <workItem from="1618817032387" duration="9451000" />
       <workItem from="1618831077596" duration="1198000" />
       <workItem from="1618832316585" duration="56000" />
-      <workItem from="1618842878207" duration="19101000" />
+      <workItem from="1618842878207" duration="24371000" />
+      <workItem from="1618890456344" duration="16670000" />
     </task>
     <servers />
   </component>
@@ -311,6 +328,11 @@
           <url>file://$PROJECT_DIR$/resources/views/Site/single-product.blade.php</url>
           <line>460</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/routes/staff.php</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

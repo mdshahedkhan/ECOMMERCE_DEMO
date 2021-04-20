@@ -6,6 +6,7 @@ use Cart;
 use Exception;
 use App\Models\Customer;
 use App\Models\Subscribers;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -81,30 +82,29 @@ class CustomerController extends Controller
             session()->flash('registerError');
             return redirect()->back()->with('errors', $validator->errors());
         } else {*/
-        $exception = DB::transaction(function () use ($request) {
-            try {
-                $customer = Customer::create([
-                    'first_name' => $request->first_name,
-                    'last_name'  => $request->last_name,
-                    'email'      => $request->r_email,
-                    'phone'      => $request->phone,
-                    'password'   => bcrypt($request->r_password)
-                ]);
-                if (isset($request->newsletter_signup) || $request->newsletter_signup == 'on') {
-                    $subscriber        = new Subscribers();
-                    $subscriber->email = $request->r_email;
-                    $subscriber->save();
-                }
-                notify()->success('Yah! you are successfully logged in.');
-                session()->flash('success', 'you are successfully logged in.');
-                Session::put('customer', $customer->id);
-                Session::put('c_email', $customer->email);
-                Session::put('c_name', $customer->first_name . ' ' . $customer->last_name);
-            } catch (Exception $ex) {
-                SetMessage('danger', $ex->getMessage());
-                return redirect()->back();
+        try {
+            $customer = Customer::create([
+                'first_name' => $request->first_name,
+                'last_name'  => $request->last_name,
+                'email'      => $request->r_email,
+                'phone'      => $request->phone,
+                'password'   => bcrypt($request->r_password),
+                'address'   => ''
+            ]);
+            if (isset($request->newsletter_signup) || $request->newsletter_signup == 'on') {
+                $subscriber        = new Subscribers();
+                $subscriber->email = $request->r_email;
+                $subscriber->save();
             }
-        });
+            notify()->success('Yah! you are successfully logged in.');
+            session()->flash('success', 'you are successfully logged in.');
+            Session::put('customer', $customer->id);
+            Session::put('c_email', $customer->email);
+            Session::put('c_name', $customer->first_name . ' ' . $customer->last_name);
+        } catch (Exception $ex) {
+            SetMessage('danger', $ex->getMessage());
+            return redirect()->back();
+        }
         return redirect()->route('customer.dashboard');
     }
 

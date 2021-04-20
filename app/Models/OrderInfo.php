@@ -10,4 +10,10 @@ class OrderInfo extends Model
     use HasFactory;
 
     protected $fillable = ['order_id', 'product_id', 'product_name', 'product_price', 'product_qty'];
+
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id')->select('id', 'thumbnail');
+    }
 }

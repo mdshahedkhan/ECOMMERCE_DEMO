@@ -5,7 +5,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <h2 class="mb-0 text-white">649 <i class='bx bxs-up-arrow-alt font-14 text-white'></i> </h2>
+                            <h2 class="mb-0 text-white">649 <i class='bx bxs-up-arrow-alt font-14 text-white'></i></h2>
                         </div>
                         <div class="ml-auto font-35 text-white"><i class="bx bx-cart-alt"></i>
                         </div>
@@ -24,7 +24,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <h2 class="mb-0 text-white">114 <i class='bx bxs-down-arrow-alt font-14 text-white'></i> </h2>
+                            <h2 class="mb-0 text-white">114 <i class='bx bxs-down-arrow-alt font-14 text-white'></i></h2>
                         </div>
                         <div class="ml-auto font-35 text-white"><i class="bx bx-support"></i>
                         </div>
@@ -43,7 +43,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <h2 class="mb-0 text-white">98 <i class='bx bxs-up-arrow-alt font-14 text-white'></i> </h2>
+                            <h2 class="mb-0 text-white">98 <i class='bx bxs-up-arrow-alt font-14 text-white'></i></h2>
                         </div>
                         <div class="ml-auto font-35 text-white"><i class="bx bx-tachometer"></i>
                         </div>
@@ -62,7 +62,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
-                            <h2 class="mb-0 text-white">208 <i class='bx bxs-up-arrow-alt font-14 text-white'></i> </h2>
+                            <h2 class="mb-0 text-white">208 <i class='bx bxs-up-arrow-alt font-14 text-white'></i></h2>
                         </div>
                         <div class="ml-auto font-35 text-white"><i class="bx bx-user"></i>
                         </div>
@@ -103,19 +103,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <div class="product-img bg-transparent border">
-                                    <img src="{{  asset('assets/backend/assets/images/icons/smartphone.png') }}" width="35" alt="">
-                                </div>
-                            </td>
-                            <td>Honor Mobile 7x</td>
-                            <td>Mitchell Daniel</td>
-                            <td>#835478</td>
-                            <td>$54.68</td>
-                            <td><a href="javascript:;" class="btn btn-sm btn-light-success btn-block radius-30">Delivered</a>
-                            </td>
-                        </tr>
+                        @foreach($Orders as $order)
+                            <tr>
+                                <td>
+                                    <div class="product-img bg-transparent border">
+                                        <img src="{{  asset('assets/backend/assets/images/icons/smartphone.png') }}" width="35" alt="">
+                                    </div>
+                                </td>
+                                <td>{{ $order->shipping }}</td>
+                                <td>{{ $order->customer->FullName }}</td>
+                                <td>#835478</td>
+                                <td>$54.68</td>
+                                <td><a href="javascript:;" class="btn btn-sm btn-light-success btn-block radius-30">Delivered</a>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

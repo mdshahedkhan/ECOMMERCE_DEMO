@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\Staff\BrandController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\staff\DashboardController;
-use App\Http\Controllers\Staff\CategoryController;
-use App\Http\Controllers\staff\ProductController;
+use App\Http\Controllers\Staff\BrandController;
 use App\Http\Controllers\staff\SliderController;
+use App\Http\Controllers\staff\ProductController;
+use App\Http\Controllers\Staff\CategoryController;
+use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\staff\DashboardController;
 
 Route::prefix('staff')->name('staff.')->middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
@@ -53,6 +54,16 @@ Route::prefix('staff')->name('staff.')->middleware('auth')->group(function () {
         Route::post('/create', [SliderController::class, 'store'])->name('store');
         Route::get('/status{}', [SliderController::class, 'status']);
         Route::post('/status-slider/{id}/{status}', [SliderController::class, 'StatusChange'])->name('status');
+    });
+
+
+    // Order Route Define
+    Route::prefix('/order')->name('order.')->group(function () {
+        Route::get('/', [OrderController::class, 'index'])->name('index');
+        Route::get('/details/{id}', [OrderController::class, 'details'])->name('details');
+        Route::post('/status/order-status', [OrderController::class, 'status'])->name('status');
+        Route::post('/status/payment-status', [OrderController::class, 'py_status'])->name('py_status');
+        Route::post('/change/shipping-charge', [OrderController::class, 'shipping_charge'])->name('shipping_charge');
     });
 
 });

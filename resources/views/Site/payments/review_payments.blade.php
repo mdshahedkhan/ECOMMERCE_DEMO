@@ -126,7 +126,7 @@
                             </label>
                             <label for="bkash">
                                 <input type="radio" name="type" class="" style="border-color: red;" value="bkash" id="bkash">
-                                Cash
+                                Bkash
                             </label>
                             <div class="clearfix">
                                 <button type="submit" class="btn btn-primary float-right">Place Order</button>

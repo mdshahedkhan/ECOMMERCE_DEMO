@@ -63,18 +63,18 @@
                     <p class="text-center">Or</p>
                     <form action="{{ route('auth.register') }}" method="post">
                         @csrf
-                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" autocomplete="off" name="first_name" value="{{ old('first_name') }}" placeholder="First Name">
+                        <input type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" placeholder="First Name">
                         @error('first_name') <p class="text-danger">{{ $message }}</p>@enderror
-                        <input type="text" class="form-control @error('last_name') is-invalid @enderror"  autocomplete="off" name="last_name" value="{{ old('last_name') }}" placeholder="Last Name">
+                        <input type="text" class="form-control @error('last_name') is-invalid @enderror"  name="last_name" value="{{ old('last_name') }}" placeholder="Last Name">
                         @error('last_name') <p class="text-danger">{{ $message }}</p>@enderror
                         <h2 class="title mb-2">Login information</h2>
-                        <input type="text" pattern="[0-9]{11}" class="form-control @error('phone') is-invalid @enderror"  autocomplete="off" name="phone" value="{{ old('phone') }}" placeholder="Phone example 018*******">
+                        <input type="text" pattern="[0-9]{11}" class="form-control @error('phone') is-invalid @enderror"  name="phone" value="{{ old('phone') }}" placeholder="Phone example 018*******">
                         @error('phone') <p class="text-danger">{{ $message }}</p>@enderror
-                        <input type="email" class="form-control @error('r_email') is-invalid @enderror" name="r_email"  autocomplete="off" placeholder="Email Address" value="{{ old('r_email') }}">
+                        <input type="email" class="form-control @error('r_email') is-invalid @enderror" name="r_email"  placeholder="Email Address" value="{{ old('r_email') }}">
                         @error('r_email') <p class="text-danger">{{ $message }}</p>@enderror
-                        <input type="password" class="form-control @error('r_password') is-invalid @enderror" name="r_password"  autocomplete="off" placeholder="Password" value="{{ old('r_password') }}">
+                        <input type="password" class="form-control @error('r_password') is-invalid @enderror" name="r_password"  placeholder="Password" value="{{ old('r_password') }}">
                         @error('r_password') <p class="text-danger">{{ $message }}</p>@enderror
-                        <input type="password" class="form-control @error('confirm_password') is-invalid @enderror"  autocomplete="off" placeholder="Confirm Password" name="confirm_password" value="{{ old('confirm_password') }}">
+                        <input type="password" class="form-control @error('confirm_password') is-invalid @enderror"  placeholder="Confirm Password" name="confirm_password" value="{{ old('confirm_password') }}">
                         @error('confirm_password') <p class="text-danger">{{ $message }}</p>@enderror
                         <div class="custom-control custom-checkbox">
                             <input type="checkbox" name="newsletter_signup" class="custom-control-input" id="newsletter-signup">

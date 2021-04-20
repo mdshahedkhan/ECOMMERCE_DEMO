@@ -48,11 +48,11 @@ Route::prefix('cart')->name('cart.')->group(function () {
 
 
 Route::prefix('checkout')->name('checkout.')->group(function () {
-    Route::get('/', [CheckoutController::class, 'renderPage'])->name('index');
-    Route::post('/shipping', [CheckoutController::class, 'ShippingStore'])->name('shipping');
-    Route::get('/reviews', [ShippingController::class, 'review_payments'])->name('reviews_payments');
-    Route::post('/reviews', [CheckoutController::class, 'Order_New'])->name('order');
-    Route::get('/success/', [CheckoutController::class, 'Order_success'])->name('order_success');
+    Route::get('/', [CheckoutController::class, 'renderPage'])->middleware('customer')->name('index');
+    Route::post('/shipping', [CheckoutController::class, 'ShippingStore'])->middleware('customer')->name('shipping');
+    Route::get('/reviews', [ShippingController::class, 'review_payments'])->middleware('customer')->name('reviews_payments');
+    Route::post('/reviews', [CheckoutController::class, 'Order_New'])->middleware('customer')->name('order');
+    Route::get('/success/', [CheckoutController::class, 'Order_success'])->middleware('customer')->name('order_success');
 });
 
 Route::post('/load-more/product', [SiteController::class, 'Load_More_product'])->name('Load_More_product');
