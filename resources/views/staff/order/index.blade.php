@@ -63,7 +63,7 @@
                                         <td class="text-capitalize"><span class="badge badge-">{{ $row->payment->status }}</span></td>
                                         <td>
                                             <a href="{{ route('staff.order.details', base64_encode($row->id)) }}" class="btn btn-outline-info btn-sm"><i class="bx bx-info-circle"></i></a>
-                                            <a href="" class="btn btn-outline-warning btn-sm"><i class="bx bx-download"></i></a>
+                                            <a href="{{ route('staff.order.invoice', base64_encode($row->id)) }}" target="_blank" class="btn btn-outline-warning btn-sm"><i class="bx bx-download"></i></a>
                                             <a href="javascript:avoid(0)" onclick="quickEdit('{{ route('staff.order.quickEdit') }}')" data-toggle="modal" data-target="#exampleModal3" class="btn btn-outline-success btn-sm"><i class="bx bx-edit-alt"></i></a>
                                             <a href="" class="btn btn-outline-danger btn-sm"><i class="bx bx-trash"></i></a>
                                         </td>
@@ -79,7 +79,6 @@
     <!-- Modal -->
 
     <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-hidden="true">
-
     </div>
 @endsection
 @push('JS')

@@ -113,7 +113,7 @@
                         @foreach($FeatureProducts as $featurePro)
                             @php
                                 $price = false;
-                                if ($featurePro->special_price_form == date('Y-m-d') && $featurePro->special_price_to == date('Y-m-d')){
+                                if ($featurePro->special_price_form <= date('Y-m-d') && $featurePro->special_price_to >= date('Y-m-d')){
                                     $price = true;
                                 }
                             @endphp

@@ -57,4 +57,12 @@ class OrderController extends Controller
     {
         return view('staff.order.quickEdit');
     }
+
+    public function invoice($id)
+    {
+        $id         = base64_decode($id);
+        $order      = Order::with(['customer', 'shipping', 'order_info', 'payment'])->findOrFail($id);
+        $order_info = OrderInfo::with('product')->where('order_id', $id)->get();
+        return view('staff.order.invoice', compact('order'));
+    }
 }

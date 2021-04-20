@@ -65,6 +65,7 @@ Route::prefix('staff')->name('staff.')->middleware('auth')->group(function () {
         Route::post('/status/payment-status', [OrderController::class, 'py_status'])->name('py_status');
         Route::post('/change/shipping-charge', [OrderController::class, 'shipping_charge'])->name('shipping_charge');
         Route::post('/change/quickEdit', [OrderController::class, 'quickEdit'])->name('quickEdit');
+        Route::get('/invoice/{id}', [OrderController::class, 'invoice'])->name('invoice');
     });
 
 });

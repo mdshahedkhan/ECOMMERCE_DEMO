@@ -24,7 +24,8 @@ class Order extends Model
 
     public function order_info()
     {
-        return $this->hasMany(OrderInfo::class, 'order_id')->select('order_id', 'product_id', 'product_name', 'product_price', 'product_qty');
+        return $this->hasMany(OrderInfo::class, 'order_id');
+        /*->select('order_id', 'product_id', 'product_name', 'product_price', 'selling_price', 'product_qty')*/
     }
 
     public function payment()
